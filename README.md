@@ -24,27 +24,27 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.a
 <br>
 
 <a href="https://github.com/Vijayrajdev/airbnb-clone">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=airbnb-clone&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=airbnb-clone&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev/crypto-hunter">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=crypto-hunter&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=crypto-hunter&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev/Doshop">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Doshop&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Doshop&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev/Huddle-landingpage">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Huddle-landingpage&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Huddle-landingpage&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev/Metaverse">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Metaverse&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Metaverse&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev/spotify_2.0">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=spotify_2.0&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=spotify_2.0&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <br>
@@ -58,11 +58,11 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.a
 
 <p align="center" >
 <a href="https://github.com/Vijayrajdev">
-  <img align="center" style="margin:0.5rem" height="210px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&layout=compact&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:10px" height="210px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&layout=compact&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev">
-  <img align="center" style="margin:0.5rem"  height="210px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
+  <img align="center" style="margin:10px"  height="210px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
 </a>
 </p>
 
