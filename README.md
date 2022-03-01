@@ -13,26 +13,23 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.a
 <br>
 
 <p align="center">
-<img  src="/assets/snake.svg" style="background:#161b22;">
+<img  src="/assets/snake.svg" width="1500px" style="background:#161b22;">
 </p>
 
 </br>
 
 ## 📌 Pinned Repositories
 
+<p align="center">
 <br>
 
 <a href="https://github.com/Vijayrajdev/airbnb-clone">
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=airbnb-clone&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
-<br>
-
 <a href="https://github.com/Vijayrajdev/crypto-hunter">
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=crypto-hunter&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
-
-<br>
 
 <a href="https://github.com/Vijayrajdev/Doshop">
   <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/pin/?username=Vijayrajdev&repo=Doshop&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
@@ -53,17 +50,21 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.a
 <br>
 <br>
 
+</p>
+
 ## &#x1f4c8; GitHub Stats
 
 <br>
 
+<p align="center" >
 <a href="https://github.com/Vijayrajdev">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
+  <img align="center" style="margin:0.5rem" height="210px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&layout=compact&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
 <a href="https://github.com/Vijayrajdev">
-  <img align="center" style="margin:0.5rem" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
+  <img align="center" style="margin:0.5rem"  height="210px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
 </a>
+</p>
 
 <br>
 <br>
