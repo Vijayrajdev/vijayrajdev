@@ -10,6 +10,14 @@ I’m Vijay, a full-stack developer, creative coder and self-proclaimed designer
 
 Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.app/)
 
+<br>
+
+<p align="center">
+<img  src="/assets/snake.svg" style="background:#161b22;">
+</p>
+
+</br>
+
 ## 📌 Pinned Repositories
 
 <br>
