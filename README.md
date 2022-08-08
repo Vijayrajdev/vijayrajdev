@@ -1,4 +1,4 @@
-[![Vijay's GitHub Banner](./assets/Vijay_banner.svg)](https://vijayraj.netlify.app/)
+[![Vijay's GitHub Banner](./assets/banner2.png)](https://vijayraj.netlify.app/)
 
 [![Repos Badge](https://badges.pufler.dev/repos/Vijayrajdev)](https://vijayraj.netlify.app/)
 [![Twitter Badge](https://img.shields.io/badge/Twitter-Profile-informational?style=flat&logo=twitter&logoColor=white&color=1CA2F1)](https://twitter.com/Vijayrjdev)
