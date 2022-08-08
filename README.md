@@ -61,8 +61,10 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.netlify.a
   <img align="center" margin="0.5rem" height="210px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&layout=compact&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
 </a>
 
+
+
 <a href="https://github.com/Vijayrajdev">
-  <img align="center" margin="0.5rem" height="210px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
+  <img align="center" margin="0.5rem" height="210px" width="450px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
 </a>
 </p>
 
