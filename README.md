@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Vijayrajdev&style=flat-square&color=40c463">
+</p>
+
 [![Vijay's GitHub Banner](./assets/main.gif)](https://vijayraj.vercel.app/)
 
 [![Profile](https://img.shields.io/badge/Web-Vijay-blue?color=0D76A8)](https://vijayraj.vercel.app)
@@ -17,8 +21,11 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 </p>
 
 </br>
-
-## 📌 Pinned Repositories
+<p align="center">
+<img height="35px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=50&center=true&vCenter=true&width=300&lines=Pinned+Repos">
+<img height="35px" src="assets/Static/github.png">
+<hr>
+</p>
 
 <p align="center">
 <br>
@@ -52,7 +59,11 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 
 </p>
 
-## &#x1f4c8; GitHub Stats
+<p align="center">
+<img height="35px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=50&center=true&vCenter=true&width=300&lines=Github+Stats">
+<img height="35px" src="assets/Static/stats.png">
+<hr>
+</p>
 
 <br>
 
@@ -68,22 +79,34 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 <br>
 <br>
 
-## 💼 Skills
-
-![](https://img.shields.io/badge/Code-Ionic-informational?style=flat&logo=ionic&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Code-React-informational?style=flat&logo=react&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Code-Redux-informational?style=flat&logo=Redux&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=JavaScript&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Code-TypeScript-informational?style=flat&logo=TypeScript&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Code-MongoDB-informational?style=flat&logo=MongoDB&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Style-CSS-informational?style=flat&logo=css3&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Style-Tailwind-informational?style=flat&logo=Tailwind-CSS&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Style-Sass-informational?style=flat&logo=Sass&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Style-Stylus-informational?style=flat&logo=Stylus&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-Docker-informational?style=flat&logo=docker&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-Netlify-informational?style=flat&logo=netlify&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-Actions-informational?style=flat&logo=github-actions&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-NPM-informational?style=flat&logo=npm&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-Postman-informational?style=flat&logo=Postman&logoColor=white&color=4AB197)
-![](https://img.shields.io/badge/Tools-GitHub-informational?style=flat&logo=GitHub&logoColor=white&color=4AB197)
-
+<p align="center">
+<img height="35px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=50&center=true&vCenter=true&width=250&lines=Tools+I+Use">
+  <img height="35px" src="assets/Static/tools.png">
+  <hr><br>
+  <table align='center'>
+    <tr>
+      <td align='center'><img width="70" src="assets/Static/python.png" title="Python"></td>
+      <td align='center'><img width="70" src="assets/Static/cpp.png" title="C++"></td>
+      <td align='center'><img width="70" src="assets/Static/html.png" title="HTML"></td>
+      <td align='center'><img width="70" src="assets/Static/css.png" title="CSS"></td>
+      <td align='center'><img width="70" src="assets/Static/bootstrap.png" title="Bootstrap"></td>
+      <td align='center'><img width="50" src="assets/Static/django.png" title="Django"></td>
+    </tr>
+    <tr>
+      <td align='center'><img width="70" src="assets/Static/markdown.png" title="MarkDown"></td>
+      <td align='center'><img width="70" src="assets/Static/firebase.png" title="Firebase"></td>
+      <td align='center'><img width="70" src="assets/Static/sql.png" title="SQL"></td>
+      <td align='center'><img width="70" src="assets/Static/sublime.png" title="Sublime"></td>
+      <td align='center'><img width="70" src="assets/Static/git.png" title="git"></td>
+      <td align='center'><img width="70" src="assets/Static/github.png" title="Github"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align='center'><img width="70" src="assets/Static/jupyter.png" title="Jupyter"></td>
+      <td align='center'><img width="70" src="assets/Static/tensorflow.png" title="TensorFlow"></td>
+      <td align='center'><img width="70" src="assets/Static/keras.png" title="Keras"></td>
+      <td align='center'><img width="70" src="assets/Static/spark.png" title="Apache Spark"></td>
+      <td></td>
+    </tr>
+  </table>
+</p>
