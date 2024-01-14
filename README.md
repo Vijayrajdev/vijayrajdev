@@ -64,17 +64,21 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 <img height="35px" src="assets/Static/stats.png">
 <hr>
 </p>
-
 <br>
-<img width="100%" src="assets/Dynamic/isocalendar.svg">
-<img width="100%" src="Images/Dynamic/habits.svg">
-<img width="100%" src="Images/Dynamic/issuesPRs.svg">
-<img width="100%" src="Images/Dynamic/contribs.svg">
-<img width="100%" src="Images/Dynamic/languages.svg">
-<img width="100%" src="Images/Dynamic/topics.svg">
-<img width="100%" src="Images/Dynamic/achievements.svg">
-<img width="100%" src="Images/Dynamic/reactions.svg">
-<img width="100%" src="Images/Dynamic/website.svg">
+<p align="center">
+  <img width="100%" src="Images/Dynamic/stats.svg">
+  <br>
+  <br>
+  <img width="100%" src="assets/Dynamic/isocalendar.svg">
+  <img width="100%" src="Images/Dynamic/habits.svg">
+  <img width="100%" src="Images/Dynamic/issuesPRs.svg">
+  <img width="100%" src="Images/Dynamic/contribs.svg">
+  <img width="100%" src="Images/Dynamic/languages.svg">
+  <img width="100%" src="Images/Dynamic/topics.svg">
+  <img width="100%" src="Images/Dynamic/achievements.svg">
+  <img width="100%" src="Images/Dynamic/reactions.svg">
+  <img width="100%" src="Images/Dynamic/website.svg">
+</p>
 
 <p align="center" >
 <a href="https://github.com/Vijayrajdev">
@@ -208,4 +212,3 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
     <td></td>
   </tr>
 </table>
-
