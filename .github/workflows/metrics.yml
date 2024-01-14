@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  Test_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use the METRICS_TOKEN secret
+        run: echo ${{ secrets.METRICS_TOKEN }}

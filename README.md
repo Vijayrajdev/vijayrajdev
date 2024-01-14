@@ -19,8 +19,8 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 <p align="center">
 <img  src="/assets/snake.svg" width="1500px" style="background:#161b22;">
 </p>
-
 </br>
+
 <p align="center">
 <img height="35px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=50&center=true&vCenter=true&width=300&lines=Pinned+Repos">
 <img height="35px" src="assets/Static/github.png">
