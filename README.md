@@ -66,27 +66,18 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
 </p>
 <br>
 <p align="center">
-  <img width="100%" src="Images/Dynamic/stats.svg">
+  <img width="100%" src="assets/Dynamic/stats.svg">
   <br>
   <br>
   <img width="100%" src="assets/Dynamic/isocalendar.svg">
-  <img width="100%" src="Images/Dynamic/habits.svg">
-  <img width="100%" src="Images/Dynamic/issuesPRs.svg">
-  <img width="100%" src="Images/Dynamic/contribs.svg">
-  <img width="100%" src="Images/Dynamic/languages.svg">
-  <img width="100%" src="Images/Dynamic/topics.svg">
-  <img width="100%" src="Images/Dynamic/achievements.svg">
-  <img width="100%" src="Images/Dynamic/reactions.svg">
-  <img width="100%" src="Images/Dynamic/website.svg">
-</p>
-
-<p align="center" >
-<a href="https://github.com/Vijayrajdev">
-  <img align="center" margin="0.5rem" height="310px" width="450px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijayrajdev&layout=compact&hide=html,css&title_color=ffffff&text_color=c9cacc&icon_color=4AB197&bg_color=1A2B34" />
-</a>
-<a href="https://github.com/Vijayrajdev">
-  <img align="center" margin="0.5rem" height="310px" width="450px" src="https://github-readme-stats.vercel.app/api?username=Vijayrajdev&show_icons=true&line_height=27&count_private=true&title_color=ffffff&text_color=c9cacc&icon_color=4AB097&bg_color=1A2B34" alt="Vijay's GitHub Stats" />
-</a>
+  <img width="100%" src="assets/Dynamic/habits.svg">
+  <img width="100%" src="assets/Dynamic/issuesPRs.svg">
+  <img width="100%" src="assets/Dynamic/contribs.svg">
+  <img width="100%" src="assets/Dynamic/languages.svg">
+  <img width="100%" src="assets/Dynamic/topics.svg">
+  <img width="100%" src="assets/Dynamic/achievements.svg">
+  <img width="100%" src="assets/Dynamic/reactions.svg">
+  <img width="100%" src="assets/Dynamic/website.svg">
 </p>
 
 <br>
@@ -212,3 +203,21 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
     <td></td>
   </tr>
 </table>
+<br><br>
+
+<p align="center">
+  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=50&center=true&vCenter=true&width=160&lines=Gallery">
+  <img height="45px" src="assets/Static/gallery.png">
+  <hr>
+</p>
+<p align="center">
+  <a href="https://photos.app.goo.gl/bZDFY6yErU6jKrZW7">
+    <img src="https://lh3.googleusercontent.com/D-8tAXFdTtG8TqxCXKO9SDZ_Op1SbHklPP19AjIYRlSGsb9m4rVMMopZaSNqYOAruHuPiEH0ye0IDfYerJxe4ofll52C7HMGSY1KBYrwHdaWny1WSK2eyAlZAhbJuZ8vSV-lGKFuGg=w2400">
+    <br>
+    <img src="https://readme-typing-svg.herokuapp.com?font=Poiret+One&color=E1E1E1&center=true&vCenter=true&width=500&height=25&lines=A+View+of+Earth+From+ISS;Credits+%3A+NASA">
+  </a>
+  <br>
+  <img width="600px" src="assets/Dynamic/cartoon.svg">
+  <img width="600px" src="assets/Dynamic/joke.svg">
+  <img width="600px" src="assets/Dynamic/meme.svg">
+</p>
