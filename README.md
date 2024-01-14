@@ -199,5 +199,3 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
     <td></td>
   </tr>
 </table>
-
-
