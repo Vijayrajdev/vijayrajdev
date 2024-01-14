@@ -200,12 +200,4 @@ Want to know more about me? [Check out my portfolio.](https://vijayraj.vercel.ap
   </tr>
 </table>
 
-<img width="100%" src="assets/Dynamic/isocalendar.svg">
-<img width="100%" src="assets/Dynamic/habits.svg">
-<img width="100%" src="assets/Dynamic/issuesPRs.svg">
-<img width="100%" src="assets/Dynamic/contribs.svg">
-<img width="100%" src="assets/Dynamic/languages.svg">
-<img width="100%" src="assets/Dynamic/topics.svg">
-<img width="100%" src="assets/Dynamic/achievements.svg">
-<img width="100%" src="assets/Dynamic/reactions.svg">
-<img width="100%" src="assets/Dynamic/website.svg">
+
