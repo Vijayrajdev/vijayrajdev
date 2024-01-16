@@ -24,7 +24,7 @@
   <br><br>
   <img src="assets/Dynamic/snake.svg" style="background:#161b22;">
   <br><br><br><br>
-  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=300&lines=Github+Stats">
+  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Github+Stats">
   <img height="45px" src="assets/Static/stats.png">
   <hr>
 </p>
@@ -44,7 +44,7 @@
   <br /><br /><br />
   <img
     height="45px"
-    src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=270&lines=Tools+I+Use"
+    src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Tools+I+Use"
   />
   <img height="45px" src="assets/Static/tools.png" />
   <br>
@@ -166,7 +166,7 @@
 </p>
 
 <p align="center">
-  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=160&lines=Gallery">
+  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Gallery">
   <img height="45px" src="assets/Static/gallery.png">
   <hr>
 </p>
