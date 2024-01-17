@@ -13,6 +13,14 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Update User
+      - name: Update user
+        run: |
+          git config --local user.email "vijayrajck@outlook.com"
+          git config --local user.name "Vijayrajdev"
+          git add .
+          git commit -m "Updated user" || true
+          git push
       # cartoon screenshot
       - name: cartoon
         uses: lowlighter/metrics@latest
