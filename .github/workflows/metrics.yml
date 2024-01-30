@@ -42,19 +42,19 @@ jobs:
           plugin_screenshot_background: no
           config_padding: 0, 8 + 5%
       # meme screenshot
-      - name: meme
-        uses: lowlighter/metrics@latest
-        with:
-          filename: assets/Dynamic/meme.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""
-          plugin_screenshot: yes
-          plugin_screenshot_title: Meme of the day
-          plugin_screenshot_url: https://programmerhumor.io/?bimber_random_post=true
-          plugin_screenshot_selector: ".g1-frame-inner"
-          plugin_screenshot_background: no
-          config_padding: 0, 8 + 1%
+      # - name: meme
+      #   uses: lowlighter/metrics@latest
+      #   with:
+      #     filename: assets/Dynamic/meme.svg
+      #     token: ${{ secrets.METRICS_TOKEN }}
+      #     committer_token: ${{ secrets.GITHUB_TOKEN }}
+      #     base: ""
+      #     plugin_screenshot: yes
+      #     plugin_screenshot_title: Meme of the day
+      #     plugin_screenshot_url: https://programmerhumor.io/?bimber_random_post=true
+      #     plugin_screenshot_selector: ".g1-frame-inner"
+      #     plugin_screenshot_background: no
+      #     config_padding: 0, 8 + 1%
       # stats
       - name: stats
         uses: lowlighter/metrics@latest
