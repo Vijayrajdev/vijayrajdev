@@ -179,5 +179,5 @@
   <br>
   <img width="600px" src="assets/Dynamic/cartoon.svg">
   <img width="600px" src="assets/Dynamic/joke.svg">
-  <img width="600px" src="assets/Dynamic/meme.svg">
+<!--   <img width="600px" src="assets/Dynamic/meme.svg"> -->
 </p>
