@@ -101,7 +101,7 @@ jobs:
       - name: topics
         uses: lowlighter/metrics@latest
         with:
-          filename: assets/Dynamic/icons.svg
+          filename: assets/Dynamic/topics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: ""
