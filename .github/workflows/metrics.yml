@@ -146,7 +146,8 @@ jobs:
           plugin_followup: yes
           plugin_followup_sections: repositories, user
       # achievements
-      - uses: stalomeow/metrics@projects-v2
+      - name: achievements
+        uses: stalomeow/metrics@projects-v2
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
@@ -172,7 +173,7 @@ jobs:
           plugin_pagespeed: yes
           plugin_pagespeed_detailed: yes
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://vijayraj.vercel.app/
+          plugin_pagespeed_url: .user.website
       # reactions
       - name: reactions
         uses: lowlighter/metrics@latest
