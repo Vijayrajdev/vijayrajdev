@@ -146,17 +146,21 @@ jobs:
           plugin_followup: yes
           plugin_followup_sections: repositories, user
       # achievements
-      - name: achievements
-        uses: lowlighter/metrics@latest
+      - uses: stalomeow/metrics@projects-v2
         with:
-          filename: assets/Dynamic/achievements.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
+          filename: assets/Dynamic/achievements.svg
+          user: Vijayrajdev
+          template: classic
           base: ""
+          config_timezone: Asia/Kolkata
           plugin_achievements: yes
           plugin_achievements_only: polyglot, stargazer, sponsor, deployer, member, maintainer, developer, scripter, packager, explorer, infographile
           plugin_achievements_display: compact
           plugin_achievements_threshold: C
+          config_order: achievements
+
       # website
       - name: website
         uses: lowlighter/metrics@latest
