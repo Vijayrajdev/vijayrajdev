@@ -158,7 +158,7 @@ jobs:
             polyglot, stargazer, sponsor, deployer, member, maintainer, developer,
             scripter, packager, explorer, infographile, manager
           plugin_achievements_display: compact
-          plugin_achievements_threshold: X
+          plugin_achievements_threshold: C
       # website
       - name: website
         uses: lowlighter/metrics@latest
