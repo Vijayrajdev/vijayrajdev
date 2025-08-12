@@ -101,7 +101,7 @@ jobs:
       - name: topics
         uses: lowlighter/metrics@latest
         with:
-          filename: assets/Dynamic/icons.svg
+          filename: assets/Dynamic/topics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: ""
@@ -154,9 +154,7 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: ""
           plugin_achievements: yes
-          plugin_achievements_only: >-
-            polyglot, stargazer, sponsor, deployer, member, maintainer, developer,
-            scripter, packager, explorer, infographile
+          plugin_achievements_only: polyglot, stargazer, sponsor, deployer, member, maintainer, developer, scripter, packager, explorer, infographile
           plugin_achievements_display: compact
           plugin_achievements_threshold: C
       # website
