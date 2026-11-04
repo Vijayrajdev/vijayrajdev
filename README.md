@@ -1,183 +1,128 @@
+<a href="https://vijayrajdev.github.io/vijayrajdev/live/">
+  <img src="assets/Design/hero.webp" width="100%" alt="Vijay Raj, Data Engineer: an animated glass data core with orbiting data streams" />
+</a>
+
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Vijayrajdev&style=flat-square&color=40c463">
-  <br><br><br>
-  <a href="https://Vijayrajdev.github.io/">
-    <img width="400" src="https://readme-typing-svg.herokuapp.com/?font=Righteous&color=E1E1E1&size=60&center=true&vCenter=true&width=470&height=100&lines=Hello+%F0%9F%91%8B+my;I+am+a+Python;And+a+Full+Stack;Feel+free+to+get">
-    <img width="400" src="https://readme-typing-svg.herokuapp.com/?font=Righteous&color=E1E1E1&size=60&center=true&vCenter=true&width=470&height=100&lines=name+is+Vijay.;Developer;Web+Developer.;in+touch.+%F0%9F%98%84">
-  </a>
-  <br><br>
-  <a href="https://vijayraj.vercel.app/">
-    <img height="40px" src="assets/Static/vijay.svg" title="Portfolio">
-  </a>
-  <a href="https://www.linkedin.com/in/vijay-raj-02/">
-    <img height="40px" src="assets/Static/linkedin.png" title="LinkedIn">
-  </a>
-  <a href="mailto:vijayck2002@gmail.com">
-    <img height="40px" src="assets/Static/gmail.png" title="Mail">
-  </a>
-  <a href="https://www.instagram.com/vjxx_rj/">
-    <img height="40px" src="assets/Static/instagram.svg" title="Instagram">
-  </a>
-  <a href="https://discord.com/users/vijay_rj">
-    <img height="40px" src="assets/Static/discord.png" title="Discord">
-  </a>
-  <br><br>
-  <img src="assets/Dynamic/snake.svg" style="background:#161b22;">
-  <br><br><br><br>
-  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Github+Stats">
-  <img height="45px" src="assets/Static/stats.png">
-  <hr>
+  <a href="https://vijayrajdev.github.io/vijayrajdev/live/"><img src="https://img.shields.io/badge/▶_Play_with_the_3D_core-22d3ee?style=for-the-badge&labelColor=0b1224&color=0b1224" alt="Open the interactive 3D version" /></a>
 </p>
 
 <p align="center">
-  <img width="100%" src="assets/Dynamic/stats.svg" />
-  <br /><br />
-  <img width="100%" src="assets/Dynamic/isocalendar.svg" />
-  <img width="100%" src="assets/Dynamic/habits.svg" />
-  <img width="100%" src="assets/Dynamic/issuesPRs.svg" />
-  <img width="100%" src="assets/Dynamic/contribs.svg" />
-  <img width="100%" src="assets/Dynamic/languages.svg" />
-  <img width="100%" src="assets/Dynamic/topics.svg" />
-  <img width="100%" src="assets/Dynamic/achievements.svg" />
-  <img width="100%" src="assets/Dynamic/reactions.svg" />
-  <img width="100%" src="assets/Dynamic/website.svg" />
-  <br /><br /><br />
-  <img
-    height="45px"
-    src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Tools+I+Use"
-  />
-  <img height="45px" src="assets/Static/tools.png" />
-  <br>
-  <table align="center">
-  <tr>
-    <td align="center">
-      <img width="70" src="assets/Static/python.png" title="Python" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/cpp.png" title="C++" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/html.png" title="HTML" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/css.png" title="CSS" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/bootstrap.png" title="Bootstrap" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/tailwindcss.svg" title="Tailwind" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img
-        width="70"
-        src="assets/Static/materializecss.svg"
-        title="Materializecss"
-      />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/chakraui.svg" title="Chakraui" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/Js.svg" title="Javascript" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/markdown.png" title="MarkDown" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/firebase.png" title="Firebase" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/sql.png" title="SQL" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img width="70" src="assets/Static/postgresql.svg" title="postgresql" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/bigquery.svg" title="bigquery" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/mongodb.svg" title="mongodb" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/sublime.png" title="Sublime" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/git.png" title="git" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/github.png" title="Github" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img width="70" src="assets/Static/vscode.svg" title="vscode" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/jupyter.png" title="Jupyter" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/react.svg" title="ReactJs" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/nodejs.svg" title="NodeJs" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/express.svg" title="Expressjs" />
-    </td>
-    <td align="center">
-      <img width="70" src="assets/Static/tensorflow.png" title="tensorflow" />
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td align="center">
-      <img width="70" src="assets/Static/google-gke.svg" title="google-gke" />
-    </td>
-    <td align="center">
-      <img
-        width="70"
-        src="assets/Static/google-cloud.svg"
-        title="google-cloud"
-      />
-    </td>
-    <td align="center">
-      <img
-        width="70"
-        src="assets/Static/google-cloud-run.svg"
-        title="google-cloud-run"
-      />
-    </td>
-    <td align="center">
-      <img
-        width="70"
-        src="assets/Static/google-cloud-functions.svg"
-        title="google-cloud-functions"
-      />
-    </td>
-    <td></td>
-  </tr>
-  </table>
-  <br><br>
+  <a href="https://vijayrajck.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-0b1224?style=for-the-badge&logo=vercel&logoColor=22d3ee" alt="Portfolio" /></a>
+  <a href="https://www.linkedin.com/in/vijay-raj-02/"><img src="https://img.shields.io/badge/LinkedIn-0b1224?style=for-the-badge&logo=linkedin&logoColor=a78bfa" alt="LinkedIn" /></a>
+  <a href="mailto:vijayck2002@gmail.com"><img src="https://img.shields.io/badge/Email-0b1224?style=for-the-badge&logo=gmail&logoColor=f472b6" alt="Email" /></a>
+  <a href="https://x.com/Vijayrjdev"><img src="https://img.shields.io/badge/X-0b1224?style=for-the-badge&logo=x&logoColor=22d3ee" alt="X" /></a>
+  <a href="https://www.instagram.com/vjxx_rj/"><img src="https://img.shields.io/badge/Instagram-0b1224?style=for-the-badge&logo=instagram&logoColor=a78bfa" alt="Instagram" /></a>
+  <a href="https://discord.com/users/vijay_rj"><img src="https://img.shields.io/badge/Discord-0b1224?style=for-the-badge&logo=discord&logoColor=f472b6" alt="Discord" /></a>
+</p>
+
+<img src="assets/Design/divider.svg" width="100%" alt="" />
+
+### `$ cat about.yml`
+
+```yaml
+name: Vijay Raj
+role: Senior Data Engineer @ Ingram Micro
+based_in: Chennai, India
+focus:
+  - data platforms that build (and heal) themselves
+  - dbt, BigQuery, Dataform, Terraform on GCP
+  - agentic automation for the boring parts of data work
+also: full-stack apps with React, Next.js and Node
+currently_building: Pipewright, which turns raw files into reviewed SQL, tests and pipelines
+ask_me_about: [data modeling, pipelines, cloud warehouses, dbt]
+```
+
+### `$ ls ~/projects --featured`
+
+<p align="center">
+  <a href="https://github.com/Vijayrajdev/Pipewright"><img src="assets/Design/card-pipewright.webp" width="49%" alt="Pipewright: infers schema and drafts DDL, SQL, tests, docs and pipelines" /></a>
+  <a href="https://github.com/Vijayrajdev/sentinel"><img src="assets/Design/card-sentinel.webp" width="49%" alt="Sentinel-Forge: self-healing data ingestion platform" /></a>
+  <a href="https://github.com/Vijayrajdev/nexus-autonomous-data-engine"><img src="assets/Design/card-nexus.webp" width="49%" alt="Nexus Engine: IaC, dbt and agentic orchestration" /></a>
+  <a href="https://github.com/Vijayrajdev/vijayrajck-portfolio"><img src="assets/Design/card-portfolio.webp" width="49%" alt="Space Portfolio: a space-themed 3D portfolio" /></a>
+  <a href="https://github.com/Vijayrajdev/mac-cleanup"><img src="assets/Design/card-mac-cleanup.webp" width="49%" alt="mac-cleanup: approval-first Mac cleanup skill for Claude" /></a>
+  <a href="https://github.com/Vijayrajdev/pc-deepclean"><img src="assets/Design/card-pc-deepclean.webp" width="49%" alt="pc-deepclean: analyse-first Windows clean-up" /></a>
+</p>
+
+### `$ which --all tools`
+
+**Data & cloud**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=gcp,aws,terraform,docker,kubernetes,postgres,mongodb,firebase&theme=dark" alt="GCP, AWS, Terraform, Docker, Kubernetes, PostgreSQL, MongoDB, Firebase" />
+  <br />
+  <img src="https://img.shields.io/badge/dbt-0b1224?style=for-the-badge&logo=dbt&logoColor=FF694B" alt="dbt" />
+  <img src="https://img.shields.io/badge/BigQuery-0b1224?style=for-the-badge&logo=googlebigquery&logoColor=669DF6" alt="BigQuery" />
+  <img src="https://img.shields.io/badge/Spark-0b1224?style=for-the-badge&logo=apachespark&logoColor=E25A1C" alt="Apache Spark" />
+  <img src="https://img.shields.io/badge/Looker_Studio-0b1224?style=for-the-badge&logo=looker&logoColor=4285F4" alt="Looker Studio" />
+  <img src="https://img.shields.io/badge/Jupyter-0b1224?style=for-the-badge&logo=jupyter&logoColor=F37626" alt="Jupyter" />
+</p>
+
+**Languages & web**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=py,ts,js,cpp,html,css,react,nextjs,nodejs,express,threejs,tailwind,bootstrap&theme=dark" alt="Python, TypeScript, JavaScript, C++, HTML, CSS, React, Next.js, Node.js, Express, three.js, Tailwind, Bootstrap" />
+</p>
+
+**ML & tooling**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=tensorflow,git,github,githubactions,vscode,vite,vercel,md,latex&theme=dark" alt="TensorFlow, Git, GitHub, GitHub Actions, VS Code, Vite, Vercel, Markdown, LaTeX" />
+</p>
+
+### `$ ./galaxy --add-me`
+
+<a href="https://github.com/Vijayrajdev/vijayrajdev/issues/new?title=galaxy%3A+leave+a+star&body=Just+hit+%22Create%22.+A+bot+will+add+your+star+to+the+galaxy+and+close+this+issue+in+about+a+minute.+%E2%9C%A6">
+  <img src="assets/Design/galaxy.svg" width="100%" alt="Galaxy guestbook: every visitor who says hi becomes a named star" />
+</a>
+
+<p align="center">
+  <a href="https://github.com/Vijayrajdev/vijayrajdev/issues/new?title=galaxy%3A+leave+a+star&body=Just+hit+%22Create%22.+A+bot+will+add+your+star+to+the+galaxy+and+close+this+issue+in+about+a+minute.+%E2%9C%A6"><img src="https://img.shields.io/badge/✦_Leave_your_star-a78bfa?style=for-the-badge&labelColor=0b1224&color=0b1224" alt="Leave your star" /></a>
+</p>
+
+### `$ git log --stat`
+
+<p align="center">
+  <img src="assets/Dynamic/isocalendar.svg" width="49%" alt="Contribution calendar" />
+  <img src="assets/Dynamic/languages.svg" width="49%" alt="Most used languages" />
 </p>
 
 <p align="center">
-  <img height="45px" src="https://readme-typing-svg.herokuapp.com?font=Righteous&color=E1E1E1&size=70&center=true&vCenter=true&width=550&height=65&lines=Gallery">
-  <img height="45px" src="assets/Static/gallery.png">
-  <hr>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Vijayrajdev/vijayrajdev/output/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Vijayrajdev/vijayrajdev/output/snake-light.svg" />
+    <img src="https://raw.githubusercontent.com/Vijayrajdev/vijayrajdev/output/snake-dark.svg" width="100%" alt="Snake eating my contribution graph" />
+  </picture>
 </p>
+
+<details>
+  <summary><b>More stats</b>: activity, habits, PRs, achievements</summary>
+  <br />
+  <p align="center">
+    <img src="assets/Dynamic/stats.svg" width="100%" alt="GitHub stats" />
+    <img src="assets/Dynamic/habits.svg" width="100%" alt="Coding habits" />
+    <img src="assets/Dynamic/issuesPRs.svg" width="100%" alt="Issues and pull requests" />
+    <img src="assets/Dynamic/achievements.svg" width="100%" alt="Achievements" />
+    <img src="assets/Dynamic/contribs.svg" width="100%" alt="Notable contributions" />
+    <img src="assets/Dynamic/topics.svg" width="100%" alt="Topics" />
+    <img src="assets/Dynamic/reactions.svg" width="100%" alt="Reactions" />
+    <img src="assets/Dynamic/website.svg" width="100%" alt="Portfolio PageSpeed" />
+  </p>
+</details>
+
+<details>
+  <summary><b>Daily break</b>: today's cartoon and joke</summary>
+  <br />
+  <p align="center">
+    <img src="assets/Dynamic/cartoon.svg" width="600" alt="Cartoon of the day" />
+    <img src="assets/Dynamic/joke.svg" width="600" alt="Joke of the day" />
+  </p>
+</details>
+
+<br />
+<img src="assets/Design/divider.svg" width="100%" alt="" />
+
 <p align="center">
-  <a href="https://images.nasa.gov/details/iss040e080833">
-    <img src="https://images-assets.nasa.gov/image/iss040e080833/iss040e080833~orig.jpg">
-    <br>
-    <img src="https://readme-typing-svg.herokuapp.com?font=Poiret+One&color=E1E1E1&center=true&vCenter=true&width=700&height=25&lines=A+View+of+Earth+From+JSC;Credits+%3A+NASA">
-  </a>
-  <br>
-  <img width="600px" src="assets/Dynamic/cartoon.svg">
-  <img width="600px" src="assets/Dynamic/joke.svg">
-<!--   <img width="600px" src="assets/Dynamic/meme.svg"> -->
+  <sub>Rendered in three.js, recorded frame by frame, and kept alive by GitHub Actions.</sub>
+  <br />
+  <img src="https://komarev.com/ghpvc/?username=Vijayrajdev&style=flat-square&color=a78bfa&label=profile+views" alt="Profile views" />
 </p>

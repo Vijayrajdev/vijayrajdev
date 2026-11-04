@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vijay Raj · Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;800;900&family=Geist+Mono:wght@400;500&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --cyan: #22d3ee; --violet: #a78bfa; --pink: #f472b6;
+    --text: #eef2ff; --muted: #94a3c4; --line: rgba(255,255,255,.09);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #04060d; color: var(--text); font-family: Geist, system-ui, sans-serif; overflow: hidden; }
+  body.capture { background: transparent; }
+
+  .frame { position: fixed; inset: 0; overflow: hidden; background: #04060d; }
+  body.capture .frame { border-radius: 28px; box-shadow: inset 0 0 0 1px var(--line); }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .frame::after { /* inner hairline above the canvas */
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), inset 0 1px 0 rgba(255,255,255,.12);
+  }
+
+  .copy { position: absolute; left: 6.2%; top: 50%; transform: translateY(-50%); width: 52%; pointer-events: none; }
+  .prompt { font: 500 15px "Geist Mono", monospace; color: var(--cyan); letter-spacing: .02em; display: flex; align-items: center; gap: 8px; }
+  .prompt .dim { color: #4b5a7a; }
+  .cursor { width: 9px; height: 18px; background: var(--cyan); border-radius: 1px; box-shadow: 0 0 12px var(--cyan); }
+
+  .name {
+    margin-top: 14px; font-weight: 900; font-size: clamp(56px, 8.4vw, 132px); line-height: .92; letter-spacing: -.045em;
+    background: linear-gradient(100deg, #ffffff 0%, #dfe6ff 35%, #ffffff var(--shine-a, 45%), #b9c6ff var(--shine-b, 50%), #ffffff var(--shine-c, 55%), #cfd8ff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 6px 30px rgba(124, 92, 255, .25));
+  }
+  .role { margin-top: 18px; display: flex; align-items: center; gap: 16px; }
+  .role .bar { width: 44px; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--violet)); border-radius: 2px; box-shadow: 0 0 12px var(--cyan); }
+  .role span {
+    font: 500 clamp(14px, 1.55vw, 24px) "Geist Mono", monospace; letter-spacing: .42em; text-transform: uppercase;
+    background: linear-gradient(90deg, var(--cyan), var(--violet) 55%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .ticker { position: relative; margin-top: 26px; height: 30px; }
+  .ticker p { position: absolute; left: 0; top: 0; font: 400 clamp(14px, 1.4vw, 21px) Geist, sans-serif; color: var(--muted); white-space: nowrap; opacity: 0; }
+  .ticker p b { color: var(--text); font-weight: 500; }
+
+  .chips { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px 9px 13px; border-radius: 999px;
+    font: 500 13.5px "Geist Mono", monospace; color: #dbe4ff;
+    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), inset 0 1px 0 rgba(255,255,255,.12), 0 8px 24px rgba(0,0,0,.35);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  .hud { position: absolute; right: 3.2%; bottom: 7%; font: 400 12px "Geist Mono", monospace; color: #4f5f80; text-align: right; line-height: 1.7; pointer-events: none; }
+  .hud em { font-style: normal; color: #7dd3fc; }
+  .hint { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); font: 400 12px "Geist Mono", monospace; color: #5b6b8c; letter-spacing: .08em; }
+  body.capture .hint { display: none; }
+  .back { position: absolute; top: 20px; right: 24px; font: 500 13px "Geist Mono", monospace; color: #9fb0d6; text-decoration: none; padding: 8px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+  body.capture .back { display: none; }
+
+  @media (max-width: 760px) {
+    .copy { left: 20px; right: 20px; width: auto; top: auto; bottom: 48px; transform: none; }
+    .hud { display: none; }
+    .hint { top: 28px; bottom: auto; left: 24px; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="frame" id="frame">
+  <canvas id="gl"></canvas>
+
+  <div class="copy">
+    <div class="prompt"><span class="dim">~/vijay</span><span>$ whoami</span><i class="cursor" id="cursor"></i></div>
+    <h1 class="name" id="name">Vijay Raj</h1>
+    <div class="role"><i class="bar"></i><span>Data Engineer</span></div>
+    <div class="ticker" id="ticker">
+      <p>Building data platforms that <b>build themselves</b>.</p>
+      <p>Pipelines that <b>heal</b> before the pager rings.</p>
+      <p><b>dbt</b> · <b>BigQuery</b> · <b>Dataform</b> · <b>Terraform</b> · <b>GCP</b></p>
+      <p>Raw files in. <b>Reviewed SQL, tests and docs</b> out.</p>
+    </div>
+    <div class="chips">
+      <span class="chip"><i class="dot" style="background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></i>Chennai, IN</span>
+      <span class="chip"><i class="dot" style="background:var(--violet);box-shadow:0 0 10px var(--violet)"></i>@ Ingram Micro</span>
+      <span class="chip"><i class="dot" id="live" style="background:#4ade80;box-shadow:0 0 10px #4ade80"></i>open to collabs</span>
+    </div>
+  </div>
+
+  <div class="hud" id="hud">
+    core.status <em>healthy</em><br />
+    rows/s <em id="rps">1,284,019</em><br />
+    freshness <em>&lt; 60s</em>
+  </div>
+  <a class="back" href="https://github.com/Vijayrajdev">← github</a>
+  <div class="hint">drag to orbit · click the core</div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+
+const params = new URLSearchParams(location.search);
+const CAPTURE = params.has("capture");
+const LOOP = 6; // seconds; every motion is periodic over this so captures loop seamlessly
+const TAU = Math.PI * 2;
+if (CAPTURE) document.body.classList.add("capture");
+
+const canvas = document.getElementById("gl");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: CAPTURE });
+renderer.setPixelRatio(CAPTURE ? 1 : Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.setClearColor(0x04060d, 1);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 200);
+camera.position.set(0, 0, 13);
+
+// ---------- nebula backdrop ----------
+const nebula = new THREE.Mesh(
+  new THREE.PlaneGeometry(2, 2),
+  new THREE.ShaderMaterial({
+    depthWrite: false, depthTest: false,
+    uniforms: { uPhase: { value: 0 }, uAspect: { value: 1 } },
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.9999, 1.); }`,
+    fragmentShader: `
+      varying vec2 vUv; uniform float uPhase; uniform float uAspect;
+      float h(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
+      float n(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+        return mix(mix(h(i),h(i+vec2(1,0)),f.x), mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x), f.y); }
+      float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<5;i++){ v+=a*n(p); p*=2.03; a*=.5; } return v; }
+      void main(){
+        vec2 p = vUv; p.x *= uAspect;
+        vec2 drift = vec2(cos(uPhase), sin(uPhase)) * .06;
+        float f = fbm(p * 2.2 + drift + fbm(p * 1.4 - drift) );
+        vec3 base = vec3(.012,.016,.035);
+        vec3 c1 = vec3(.32,.20,.85) * smoothstep(.45,.95,f) * smoothstep(1.3,.2,distance(vUv, vec2(.78,.55)));
+        vec3 c2 = vec3(.05,.55,.75) * smoothstep(.55,1.,f) * smoothstep(.9,.0,distance(vUv, vec2(.95,.1)));
+        vec3 c3 = vec3(.85,.25,.55) * pow(smoothstep(.6,1.,f),2.) * smoothstep(.8,.0,distance(vUv, vec2(.62,.95)));
+        float vign = smoothstep(1.25,.25,distance(vUv, vec2(.6,.5)));
+        vec3 col = base + (c1*.22 + c2*.16 + c3*.14) * vign;
+        // faint perspective grid floor on the right
+        vec2 g = vUv * vec2(uAspect, 1.) * 26.;
+        float grid = (1.-smoothstep(0.,.04,abs(fract(g.x)-.5)-.46)) + (1.-smoothstep(0.,.04,abs(fract(g.y)-.5)-.46));
+        col += vec3(.35,.45,.9) * grid * .018 * smoothstep(.2,.9,vUv.x);
+        gl_FragColor = vec4(col, 1.);
+      }`,
+  })
+);
+nebula.frustumCulled = false;
+nebula.renderOrder = -10;
+scene.add(nebula);
+
+// ---------- stars ----------
+const STAR_N = 900;
+const starGeo = new THREE.BufferGeometry();
+const starPos = new Float32Array(STAR_N * 3), starSeed = new Float32Array(STAR_N);
+let s = 7;
+const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+for (let i = 0; i < STAR_N; i++) {
+  starPos.set([(rnd() - .5) * 60, (rnd() - .5) * 30, -10 - rnd() * 30], i * 3);
+  starSeed[i] = rnd();
+}
+starGeo.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
+starGeo.setAttribute("seed", new THREE.BufferAttribute(starSeed, 1));
+const stars = new THREE.Points(starGeo, new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  uniforms: { uPhase: { value: 0 } },
+  vertexShader: `attribute float seed; uniform float uPhase; varying float vA;
+    void main(){ vec4 mv = modelViewMatrix * vec4(position,1.); gl_Position = projectionMatrix * mv;
+      vA = .25 + .75 * (.5 + .5 * sin(uPhase * (1. + floor(seed*3.)) + seed * 40.));
+      gl_PointSize = (1. + seed * 2.2) * (30. / -mv.z); }`,
+  fragmentShader: `varying float vA; void main(){ float d = length(gl_PointCoord-.5); gl_FragColor = vec4(vec3(.8,.85,1.), vA * smoothstep(.5,0.,d)); }`,
+}));
+scene.add(stars);
+
+// ---------- the data core ----------
+const rig = new THREE.Group();
+scene.add(rig);
+
+const coreGeo = new THREE.IcosahedronGeometry(1.55, 40);
+const basePos = coreGeo.attributes.position.array.slice();
+const glass = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, metalness: 0, roughness: 0.015, transmission: 1, thickness: 2.2, ior: 1.5,
+  dispersion: 1.2, iridescence: 1, iridescenceIOR: 1.35, iridescenceThicknessRange: [180, 620],
+  clearcoat: 1, clearcoatRoughness: 0.02, envMapIntensity: 2.4, specularIntensity: 1,
+  attenuationColor: new THREE.Color(0x9d8cff), attenuationDistance: 5,
+});
+const core = new THREE.Mesh(coreGeo, glass);
+rig.add(core);
+
+const heart = new THREE.Mesh(
+  new THREE.IcosahedronGeometry(0.42, 1),
+  new THREE.MeshBasicMaterial({ color: new THREE.Color(0x22d3ee).multiplyScalar(3.2), wireframe: false })
+);
+rig.add(heart);
+const heartWire = new THREE.Mesh(
+  new THREE.IcosahedronGeometry(0.72, 1),
+  new THREE.MeshBasicMaterial({ color: new THREE.Color(0xa78bfa).multiplyScalar(1.8), wireframe: true, transparent: true, opacity: .55 })
+);
+rig.add(heartWire);
+const innerLight = new THREE.PointLight(0x67e8f9, 30, 8, 2);
+rig.add(innerLight);
+
+const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(-4, 5, 6); scene.add(key);
+const rimV = new THREE.PointLight(0xa78bfa, 90, 20); rimV.position.set(4, 2, -3); scene.add(rimV);
+const rimP = new THREE.PointLight(0xf472b6, 40, 20); rimP.position.set(-3, -3, 2); scene.add(rimP);
+
+// ---------- orbital rings carrying data packets ----------
+const rings = [];
+const ringSpecs = [
+  { r: 2.45, tilt: [1.15, 0.0, 0.35], n: 64, color: 0x22d3ee, speed: 1 },
+  { r: 2.95, tilt: [1.45, 0.0, -0.6], n: 84, color: 0xa78bfa, speed: -1 },
+  { r: 3.5, tilt: [0.95, 0.0, 1.1], n: 100, color: 0xf472b6, speed: 1 },
+];
+const packetGeo = new THREE.BoxGeometry(0.075, 0.075, 0.075);
+for (const spec of ringSpecs) {
+  const g = new THREE.Group();
+  g.rotation.set(...spec.tilt);
+  const torus = new THREE.Mesh(
+    new THREE.TorusGeometry(spec.r, 0.006, 8, 256),
+    new THREE.MeshBasicMaterial({ color: new THREE.Color(spec.color).multiplyScalar(1.1), transparent: true, opacity: .28 })
+  );
+  g.add(torus);
+  const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: .9, roughness: .2, emissive: new THREE.Color(spec.color), emissiveIntensity: 0.9 });
+  const inst = new THREE.InstancedMesh(packetGeo, mat, spec.n);
+  g.add(inst);
+  rig.add(g);
+  rings.push({ ...spec, group: g, inst });
+}
+
+// ---------- streams spiralling into the core ----------
+const STREAM_N = 2400;
+const streamGeo = new THREE.BufferGeometry();
+const streamSeed = new Float32Array(STREAM_N * 3);
+for (let i = 0; i < STREAM_N; i++) streamSeed.set([rnd(), rnd(), Math.floor(rnd() * 5)], i * 3);
+streamGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(STREAM_N * 3), 3));
+streamGeo.setAttribute("seed", new THREE.BufferAttribute(streamSeed, 3));
+const stream = new THREE.Points(streamGeo, new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  uniforms: { uT: { value: 0 }, uPulse: { value: 0 } },
+  vertexShader: `
+    attribute vec3 seed; uniform float uT; uniform float uPulse; varying vec3 vC; varying float vA;
+    void main(){
+      float arm = seed.z;                         // 5 inbound streams
+      float p = fract(seed.x + uT);               // progress along the stream, loops each cycle
+      float r = mix(7.5, 1.6, p);
+      float a = arm * 1.2566 + p * 4.2 + (seed.y - .5) * .35;
+      float y = sin(arm * 2.1) * 2.2 * (1. - p) + (seed.y - .5) * .5 * (1. - p);
+      vec3 pos = vec3(cos(a) * r, y, sin(a) * r * .55);
+      pos *= 1. + uPulse * .15 * (1. - p);
+      vec4 mv = modelViewMatrix * vec4(pos, 1.); gl_Position = projectionMatrix * mv;
+      gl_PointSize = (0.9 + seed.y * 1.8) * (20. / -mv.z) * (0.6 + p);
+      vec3 cy = vec3(.13,.83,.93), vi = vec3(.65,.55,.98), pk = vec3(.96,.45,.71);
+      vC = mod(arm, 3.) < 1. ? cy : (mod(arm, 3.) < 2. ? vi : pk);
+      vA = smoothstep(0., .15, p) * smoothstep(1., .85, p);
+    }`,
+  fragmentShader: `varying vec3 vC; varying float vA;
+    void main(){ float d = length(gl_PointCoord - .5); gl_FragColor = vec4(vC * 1.1, vA * .8 * smoothstep(.5, 0., d)); }`,
+}));
+rig.add(stream);
+
+// ---------- post ----------
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.55, 0.4, 0.92);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+// ---------- layout ----------
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false);
+  composer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  nebula.material.uniforms.uAspect.value = w / h;
+  // keep the core on the right third on wide screens, centred-top on phones
+  const wide = w / h > 1.2;
+  rig.position.set(wide ? Math.min(4.6, 1.75 * camera.aspect) : 0, wide ? 0 : 1.9, 0);
+  rig.scale.setScalar(wide ? 1 : 0.58);
+}
+addEventListener("resize", resize);
+resize();
+
+// ---------- overlay ----------
+const ticker = [...document.querySelectorAll("#ticker p")];
+const nameEl = document.getElementById("name");
+const cursorEl = document.getElementById("cursor");
+const liveEl = document.getElementById("live");
+const rpsEl = document.getElementById("rps");
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+
+function overlay(t) {
+  const u = (t % LOOP) / LOOP;
+  ticker.forEach((el, i) => {
+    const k = (u * ticker.length - i + ticker.length) % ticker.length; // 0..1 is this line's slot
+    const a = k < 1 ? smooth(0, .12, k) * (1 - smooth(.85, 1, k)) : 0;
+    el.style.opacity = a;
+    el.style.transform = `translateY(${(k < 0.5 ? 1 - smooth(0, .12, k) : -smooth(.85, 1, k)) * 10}px)`;
+    el.style.filter = `blur(${(1 - a) * 6}px)`;
+  });
+  const sweep = -20 + 140 * smooth(.05, .45, u);
+  nameEl.style.setProperty("--shine-a", `${sweep - 8}%`);
+  nameEl.style.setProperty("--shine-b", `${sweep}%`);
+  nameEl.style.setProperty("--shine-c", `${sweep + 8}%`);
+  cursorEl.style.opacity = Math.floor(u * 12) % 2 ? 0.15 : 1;
+  liveEl.style.opacity = 0.45 + 0.55 * (0.5 + 0.5 * Math.cos(u * TAU * 3));
+  rpsEl.textContent = Math.round(1284019 + 37000 * Math.sin(u * TAU * 2) + 9000 * Math.sin(u * TAU * 7)).toLocaleString("en-US");
+}
+
+// ---------- animation ----------
+const dummy = new THREE.Object3D();
+const pos = coreGeo.attributes.position;
+let pulse = 0, drag = { x: 0, y: 0 }, dragTarget = { x: 0, y: 0 };
+
+function frame(t) {
+  const u = (t % LOOP) / LOOP, ph = u * TAU;
+
+  // breathing, periodic surface displacement
+  for (let i = 0; i < pos.count; i++) {
+    const x = basePos[i * 3], y = basePos[i * 3 + 1], z = basePos[i * 3 + 2];
+    const d = 1 + 0.045 * Math.sin(x * 2.2 + ph) * Math.sin(y * 2.4 - ph) + 0.018 * Math.sin(z * 5.3 + ph * 2) + pulse * 0.08 * Math.sin(y * 9 + ph * 4);
+    pos.setXYZ(i, x * d, y * d, z * d);
+  }
+  pos.needsUpdate = true;
+  coreGeo.computeVertexNormals();
+
+  core.rotation.set(0.25 + 0.1 * Math.sin(ph), ph, 0);
+  heart.rotation.set(ph * 2, -ph, 0);
+  heartWire.rotation.set(-ph, ph * 2, ph);
+  const beat = 1 + 0.12 * Math.pow(0.5 + 0.5 * Math.sin(ph * 3), 6) + pulse * 0.4;
+  heart.scale.setScalar(beat);
+  innerLight.intensity = 26 + 18 * (beat - 1) * 4;
+
+  for (const ring of rings) {
+    const { inst, n, r, speed } = ring;
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * TAU + ph * speed;
+      const gap = Math.sin(i * 0.9) > 0.55 ? 0 : 1; // gaps read as batches
+      dummy.position.set(Math.cos(a) * r, Math.sin(a) * r, 0);
+      dummy.rotation.set(a * 2, a, 0);
+      dummy.scale.setScalar(gap * (0.7 + 0.6 * (0.5 + 0.5 * Math.sin(i * 2.3 + ph * 2))));
+      dummy.updateMatrix();
+      inst.setMatrixAt(i, dummy.matrix);
+    }
+    inst.instanceMatrix.needsUpdate = true;
+  }
+
+  stream.material.uniforms.uT.value = u * 2;
+  stream.material.uniforms.uPulse.value = pulse;
+  stars.material.uniforms.uPhase.value = ph;
+  nebula.material.uniforms.uPhase.value = ph;
+
+  drag.x += (dragTarget.x - drag.x) * 0.06;
+  drag.y += (dragTarget.y - drag.y) * 0.06;
+  rig.rotation.set(0.12 * Math.sin(ph) + drag.y, drag.x, 0.05 * Math.cos(ph));
+  rig.position.y = (innerWidth / innerHeight > 1.2 ? 0 : 1.9) + 0.12 * Math.sin(ph);
+
+  overlay(t);
+  composer.render();
+}
+
+// deterministic hook for the recorder
+window.__LOOP = LOOP;
+window.__renderAt = (t) => { frame(t); return true; };
+document.fonts.ready.then(() => { window.__ready = true; });
+
+if (!CAPTURE) {
+  let down = null;
+  addEventListener("pointerdown", (e) => { down = { x: e.clientX, y: e.clientY, dx: dragTarget.x, dy: dragTarget.y }; });
+  addEventListener("pointerup", (e) => {
+    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 5) pulse = 1; // click = pulse the core
+    down = null;
+  });
+  addEventListener("pointermove", (e) => {
+    if (down) {
+      dragTarget.x = down.dx + (e.clientX - down.x) * 0.006;
+      dragTarget.y = Math.max(-0.8, Math.min(0.8, down.dy + (e.clientY - down.y) * 0.006));
+    } else {
+      dragTarget.x += ((e.clientX / innerWidth - .5) * 0.5 - dragTarget.x) * 0.02;
+      dragTarget.y += ((e.clientY / innerHeight - .5) * 0.3 - dragTarget.y) * 0.02;
+    }
+  });
+  const start = performance.now();
+  const loop = (now) => {
+    pulse *= 0.96;
+    frame((now - start) / 1000);
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>

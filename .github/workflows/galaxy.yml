@@ -1,0 +1,49 @@
+name: Galaxy Guestbook
+on:
+  issues:
+    types: [opened]
+concurrency:
+  group: galaxy
+  cancel-in-progress: false
+jobs:
+  add-star:
+    if: startsWith(github.event.issue.title, 'galaxy:')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: add star
+        id: star
+        env:
+          LOGIN: ${{ github.event.issue.user.login }}
+        run: echo "result=$(node studio/galaxy.mjs add "$LOGIN" | head -1)" >> "$GITHUB_OUTPUT"
+      - name: commit
+        if: steps.star.outputs.result == 'added'
+        env:
+          LOGIN: ${{ github.event.issue.user.login }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/Design/galaxy.json assets/Design/galaxy.svg
+          git commit -m "galaxy: add star for @$LOGIN - [Skip GitHub Action]"
+          git pull --rebase
+          git push
+      - name: thank and close
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          LOGIN: ${{ github.event.issue.user.login }}
+          RESULT: ${{ steps.star.outputs.result }}
+        run: |
+          if [ "$RESULT" = "added" ]; then
+            msg="✦ Your star is live, @$LOGIN! Head back to https://github.com/${GITHUB_REPOSITORY_OWNER} to find it in the galaxy (it may take a minute to refresh). Thanks for stopping by!"
+          else
+            msg="✦ You're already shining in the galaxy, @$LOGIN. Thanks for coming back!"
+          fi
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "$msg"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY" --reason completed
