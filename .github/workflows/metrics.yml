@@ -39,21 +39,6 @@ jobs:
           plugin_screenshot_selector: ".container"
           plugin_screenshot_background: no
           config_padding: 0, 8 + 5%
-      # meme screenshot
-      # - name: meme
-      #   uses: lowlighter/metrics@latest
-      #   with:
-      #     filename: assets/Dynamic/meme.svg
-      #     token: ${{ secrets.METRICS_TOKEN }}
-      #     committer_token: ${{ secrets.GITHUB_TOKEN }}
-      #     base: ""
-      #     plugin_screenshot: yes
-      #     plugin_screenshot_title: Meme of the day
-      #     plugin_screenshot_url: https://programmerhumor.io/?bimber_random_post=true
-      #     plugin_screenshot_selector: ".g1-frame-inner"
-      #     plugin_screenshot_background: no
-      #     config_padding: 0, 8 + 1%
-      # stats
       - name: stats
         uses: lowlighter/metrics@latest
         with:
@@ -62,15 +47,6 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: header, activity, community, repositories
           plugin_lines: yes
-      # notable contributions
-      - name: notable contributions
-        uses: lowlighter/metrics@latest
-        with:
-          filename: assets/Dynamic/contribs.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""
-          plugin_notable: yes
       # isocalendar
       - name: isocalendar
         uses: lowlighter/metrics@latest
@@ -107,33 +83,6 @@ jobs:
           plugin_topics_sort: stars
           plugin_topics_limit: 0
           plugin_topics_mode: icons
-      # mastered
-      #       - name: mastered
-      #         uses: lowlighter/metrics@latest
-      #         with:
-      #           filename: assets/Dynamic/mastered.svg
-      #           token: ${{ secrets.METRICS_TOKEN }}
-      #           committer_token: ${{ secrets.GITHUB_TOKEN }}
-      #           base: ""
-      #           plugin_topics: yes
-      #           plugin_topics_sort: stars
-      #           plugin_topics_mode: mastered
-      #           plugin_topics_limit: 0
-      # coding habits
-      - name: coding habits
-        uses: lowlighter/metrics@latest
-        with:
-          filename: assets/Dynamic/habits.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 100
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugin_habits_trim: no
-      # issues & PRs
       - name: issues & PRs
         uses: lowlighter/metrics@latest
         with:
@@ -150,7 +99,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           filename: assets/Dynamic/achievements.svg
-          user: Vijayrajdev
+          user: ${{ github.repository_owner }}
           template: classic
           base: ""
           config_timezone: Asia/Kolkata
@@ -160,18 +109,6 @@ jobs:
           plugin_achievements_threshold: C
           config_order: achievements
 
-      # website
-      - name: website
-        uses: lowlighter/metrics@latest
-        with:
-          filename: assets/Dynamic/website.svg
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          token: NOT_NEEDED
-          base: ""
-          plugin_pagespeed: yes
-          plugin_pagespeed_detailed: yes
-          plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://vijayrajck.vercel.app/
       # reactions
       - name: reactions
         uses: lowlighter/metrics@latest

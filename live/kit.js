@@ -5,6 +5,7 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 
 export const TAU = Math.PI * 2;
 export const COLORS = { cyan: 0x22d3ee, violet: 0xa78bfa, pink: 0xf472b6, green: 0x4ade80, amber: 0xfbbf24, red: 0xf87171 };
@@ -29,7 +30,7 @@ export function glow(color, k = 2.5) {
 
 export function createStage(canvas, { capture, bloom = [0.5, 0.4, 0.9] } = {}) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: capture });
-  renderer.setPixelRatio(capture ? 1 : Math.min(devicePixelRatio, 2));
+  renderer.setPixelRatio(capture ? devicePixelRatio : Math.min(devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.setClearColor(0x05070f, 1);
 
@@ -53,9 +54,9 @@ export function createStage(canvas, { capture, bloom = [0.5, 0.4, 0.9] } = {}) {
       fragmentShader: `
         varying vec2 vUv; uniform vec3 uTint; uniform float uAspect;
         float h(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
-        float n(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+        float n(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*f*(f*(f*6.-15.)+10.);
           return mix(mix(h(i),h(i+vec2(1,0)),f.x), mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x), f.y); }
-        float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<5;i++){ v+=a*n(p); p*=2.03; a*=.5; } return v; }
+        float fbm(vec2 p){ float v=0., a=.5; mat2 r = mat2(.8,.6,-.6,.8); for(int i=0;i<6;i++){ v+=a*n(p); p=r*p*2.03; a*=.5; } return v; }
         void main(){
           vec2 p = vUv * vec2(uAspect, 1.);
           float f = fbm(p * 2.4 + fbm(p * 1.3));
@@ -78,6 +79,15 @@ export function createStage(canvas, { capture, bloom = [0.5, 0.4, 0.9] } = {}) {
   composer.addPass(new RenderPass(scene, camera));
   composer.addPass(new UnrealBloomPass(new THREE.Vector2(1, 1), ...bloom));
   composer.addPass(new OutputPass());
+  // 8-bit dither after tone mapping: hides banding in dark gradients. Static per pixel so frames stay identical where nothing moves.
+  const dither = new ShaderPass({
+    uniforms: { tDiffuse: { value: null } },
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+    fragmentShader: `uniform sampler2D tDiffuse; varying vec2 vUv;
+      float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+      void main(){ vec4 c = texture2D(tDiffuse, vUv); c.rgb += (h(gl_FragCoord.xy) - .5) / 255.; gl_FragColor = c; }`,
+  });
+  composer.addPass(dither);
 
   function resize() {
     const w = innerWidth, h = innerHeight;

@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+# keep build tooling and docs out of the GitHub Pages site (live/ and profile.config.mjs must stay: the 3D page loads them)
+exclude: [studio, docs]

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="150" viewBox="0 0 1600 150" role="img" aria-label="About: Who I am and what I work on">
+  <title>About</title>
+  <defs>
+    <linearGradient id="h" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#a78bfa" stop-opacity=".7"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <style>
+    .n { font: 800 104px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; letter-spacing: -4px; }
+    .t { font: 800 46px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #eef2ff; letter-spacing: -1.2px; }
+    .s { font: 400 20px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #8b98b5; }
+    .spark { animation: run 5s cubic-bezier(.6,0,.4,1) infinite; }
+    @keyframes run { from { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } to { transform: translateX(960px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .spark { animation: none; opacity: 0; } }
+  </style>
+  <text x="4" y="112" class="n" fill="none" stroke="url(#h)" stroke-width="2">01</text>
+  <text x="168" y="74" class="t">About</text>
+  <text x="170" y="112" class="s">Who I am and what I work on</text>
+  <rect x="170" y="134" width="1430" height="1.5" fill="url(#line)"/>
+  <g class="spark"><circle cx="190" cy="134.75" r="6" fill="#22d3ee" filter="url(#glow)"/><circle cx="190" cy="134.75" r="2.5" fill="#fff"/></g>
+</svg>

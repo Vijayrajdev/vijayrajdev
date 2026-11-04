@@ -1,17 +1,17 @@
 {
   "name": "profile-studio",
   "version": "1.0.0",
-  "description": "Renders the 3D README assets",
+  "description": "Builds the profile README and its 3D assets from ../profile.config.mjs",
   "scripts": {
-    "hero": "node record.mjs --out assets/Design/hero.webp --w 1600 --h 640 --outw 1400 --fps 20 --q 74",
-    "cards": "for id in pipewright sentinel nexus portfolio mac-cleanup pc-deepclean; do node record.mjs --page live/card.html --query \"capture&id=$id\" --w 800 --h 880 --outw 680 --fps 15 --q 76 --out assets/Design/card-$id.webp; done",
-    "galaxy": "node galaxy.mjs",
-    "all": "npm run hero && npm run cards && npm run galaxy"
+    "build": "node assets.mjs && node readme.mjs && node galaxy.mjs",
+    "render": "node render.mjs",
+    "all": "npm run build && npm run render"
   },
   "type": "commonjs",
   "devDependencies": {
     "puppeteer": "^24.43.1",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "simple-icons": "^15.22.0"
   },
   "private": true
 }

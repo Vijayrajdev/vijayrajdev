@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281" height="52" viewBox="0 0 281 52" role="img" aria-label="Play with the 3D core">
+  <title>Play with the 3D core</title>
+  <defs>
+    <linearGradient id="h" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18213b"/><stop offset="1" stop-color="#0d1426"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="279" height="50" rx="25" fill="url(#bg)" stroke="url(#h)" stroke-width="1.5"/>
+  <circle cx="30" cy="26" r="15" fill="#ffffff" fill-opacity=".06"/>
+  <g transform="translate(31 26)"><path d="M-6 -8 L9 0 L-6 8 Z" fill="#22d3ee"/></g>
+  <text x="56" y="31.5" style="font: 600 15.5px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #eef2ff">Play with the 3D core</text>
+</svg>

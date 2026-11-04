@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="372" viewBox="0 0 1600 372" role="img" aria-label="Sources → Ingest → Lake → Warehouse → Transform → Serve, built on Terraform, Docker, GitHub Actions, Google Cloud">
+  <title>From raw source to trusted insight</title>
+  <defs><linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a31"/><stop offset="1" stop-color="#0b1122"/></linearGradient>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    .k { font: 700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; letter-spacing: .16em; }
+    .t { font: 700 24px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #eef2ff; letter-spacing: -.3px; }
+    .s { font: 400 15px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #8b98b5; }
+    .f { font: 500 15px -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif; fill: #c9d3ee; }
+    .flow { fill: none; stroke-width: 2; stroke-dasharray: 4 6; stroke-opacity: .7; animation: flow 1s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -20; } }
+    @media (prefers-reduced-motion: reduce) { .flow { animation: none; } }
+  </style>
+  <path d="M239 90 L273 90" class="flow" stroke="#94a3c4"/>
+  <circle r="3.5" fill="#22d3ee" filter="url(#glow)"><animateMotion dur="1.6s" begin="-0.00s" repeatCount="indefinite" path="M239 90 L273 90"/></circle>
+  <circle r="3.5" fill="#22d3ee" filter="url(#glow)"><animateMotion dur="1.6s" begin="-0.80s" repeatCount="indefinite" path="M239 90 L273 90"/></circle>
+  <path d="M511 90 L545 90" class="flow" stroke="#22d3ee"/>
+  <circle r="3.5" fill="#38bdf8" filter="url(#glow)"><animateMotion dur="1.6s" begin="-0.27s" repeatCount="indefinite" path="M511 90 L545 90"/></circle>
+  <circle r="3.5" fill="#38bdf8" filter="url(#glow)"><animateMotion dur="1.6s" begin="-1.07s" repeatCount="indefinite" path="M511 90 L545 90"/></circle>
+  <path d="M783 90 L817 90" class="flow" stroke="#38bdf8"/>
+  <circle r="3.5" fill="#818cf8" filter="url(#glow)"><animateMotion dur="1.6s" begin="-0.54s" repeatCount="indefinite" path="M783 90 L817 90"/></circle>
+  <circle r="3.5" fill="#818cf8" filter="url(#glow)"><animateMotion dur="1.6s" begin="-1.34s" repeatCount="indefinite" path="M783 90 L817 90"/></circle>
+  <path d="M1055 90 L1089 90" class="flow" stroke="#818cf8"/>
+  <circle r="3.5" fill="#a78bfa" filter="url(#glow)"><animateMotion dur="1.6s" begin="-0.81s" repeatCount="indefinite" path="M1055 90 L1089 90"/></circle>
+  <circle r="3.5" fill="#a78bfa" filter="url(#glow)"><animateMotion dur="1.6s" begin="-1.61s" repeatCount="indefinite" path="M1055 90 L1089 90"/></circle>
+  <path d="M1327 90 L1361 90" class="flow" stroke="#a78bfa"/>
+  <circle r="3.5" fill="#f472b6" filter="url(#glow)"><animateMotion dur="1.6s" begin="-1.08s" repeatCount="indefinite" path="M1327 90 L1361 90"/></circle>
+  <circle r="3.5" fill="#f472b6" filter="url(#glow)"><animateMotion dur="1.6s" begin="-1.88s" repeatCount="indefinite" path="M1327 90 L1361 90"/></circle>
+  <rect x="1" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="21" y="20" width="198" height="2" fill="#94a3c4" opacity=".9"/>
+    <text x="23" y="54" class="k" fill="#94a3c4">01 · SOURCES</text>
+  <rect x="23" y="72" width="36" height="28" rx="7" fill="#1b2540" stroke="#3a4a6e"/>
+  <rect x="31" y="80" width="36" height="28" rx="7" fill="#1b2540" stroke="#3a4a6e"/>
+  <rect x="39" y="88" width="36" height="28" rx="7" fill="#1b2540" stroke="#3a4a6e"/>
+  <text x="23" y="156" class="t">Sources</text>
+  <text x="23" y="188" class="s">REST APIs</text>
+  <text x="23" y="210" class="s">CSV · JSON files</text>
+  <text x="23" y="232" class="s">app events</text>
+  <rect x="273" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="293" y="20" width="198" height="2" fill="#22d3ee" opacity=".9"/>
+    <text x="295" y="54" class="k" fill="#22d3ee">02 · INGEST</text>
+  <g transform="translate(295 70) scale(0.1875)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#242938" rx="60"/><path fill="url(#l0-paint0_linear_2_47)" d="M127.279 29C76.5066 29 79.6772 51.018 79.6772 51.018L79.7338 73.8284H128.185V80.6772H60.4893C60.4893 80.6772 28 76.9926 28 128.222C28 179.452 56.3573 177.636 56.3573 177.636H73.2812V153.863C73.2812 153.863 72.369 125.506 101.186 125.506H149.24C149.24 125.506 176.239 125.942 176.239 99.4123V55.5461C176.239 55.5461 180.338 29 127.279 29ZM100.563 44.339C105.384 44.339 109.28 48.2351 109.28 53.0556C109.28 57.8761 105.384 61.7723 100.563 61.7723C95.7426 61.7723 91.8465 57.8761 91.8465 53.0556C91.8465 48.2351 95.7426 44.339 100.563 44.339Z"/><path fill="url(#l0-paint1_linear_2_47)" d="M128.721 227.958C179.493 227.958 176.323 205.941 176.323 205.941L176.266 183.13H127.815V176.281H195.511C195.511 176.281 228 179.966 228 128.736C228 77.5062 199.643 79.323 199.643 79.323H182.719V103.096C182.719 103.096 183.631 131.453 154.814 131.453H106.76C106.76 131.453 79.7607 131.016 79.7607 157.546V201.412C79.7607 201.412 75.6615 227.958 128.721 227.958ZM155.437 212.619C150.616 212.619 146.72 208.723 146.72 203.903C146.72 199.082 150.616 195.186 155.437 195.186C160.257 195.186 164.154 199.082 164.154 203.903C164.154 208.723 160.257 212.619 155.437 212.619Z"/><defs><linearGradient id="l0-paint0_linear_2_47" x1="47.22" x2="146.333" y1="46.896" y2="145.02" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="l0-paint1_linear_2_47" x1="108.056" x2="214.492" y1="109.905" y2="210.522" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs></svg>
+        </g>
+        
+  
+    </g>
+  <g transform="translate(353 70) scale(0.1875)">
+      <rect width="256" height="256" rx="60" fill="#242938"/>
+      <g transform="translate(48 48) scale(6.6667)"><path fill="#4285F4" d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"/></g>
+    </g>
+  <text x="295" y="156" class="t">Ingest</text>
+  <text x="295" y="188" class="s">Python services</text>
+  <text x="295" y="210" class="s">Cloud Run · Functions</text>
+  <text x="295" y="232" class="s">retries, self-healing</text>
+  <rect x="545" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="565" y="20" width="198" height="2" fill="#38bdf8" opacity=".9"/>
+    <text x="567" y="54" class="k" fill="#38bdf8">03 · LAKE</text>
+  <g transform="translate(567 70) scale(0.1875)">
+      <rect width="256" height="256" rx="60" fill="#242938"/>
+      <g transform="translate(48 48) scale(6.6667)"><path fill="#AECBFA" d="M24 2.4v8.4h-2.4V2.4H24zM0 10.8h2.4V2.4H0v8.4zm3-8.4h18v8.4H3V2.4zm12.6 4.2a1.8 1.8 0 1 0 3.6 0 1.8 1.8 0 0 0-3.6 0zm-10.8.6H12V6H4.8v1.2zm16.8 14.4H24v-8.4h-2.4v8.4zM0 21.6h2.4v-8.4H0v8.4zm3-8.4h18v8.4H3v-8.4zm12.6 4.2a1.8 1.8 0 1 0 3.6 0 1.8 1.8 0 0 0-3.6 0zM4.8 18H12v-1.2H4.8V18z"/></g>
+    </g>
+  <text x="567" y="156" class="t">Lake</text>
+  <text x="567" y="188" class="s">Cloud Storage</text>
+  <text x="567" y="210" class="s">raw, immutable,</text>
+  <text x="567" y="232" class="s">partitioned</text>
+  <rect x="817" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="837" y="20" width="198" height="2" fill="#818cf8" opacity=".9"/>
+    <text x="839" y="54" class="k" fill="#818cf8">04 · WAREHOUSE</text>
+  <g transform="translate(839 70) scale(0.1875)">
+      <rect width="256" height="256" rx="60" fill="#242938"/>
+      <g transform="translate(48 48) scale(6.6667)"><path fill="#669DF6" d="M5.676 10.595h2.052v5.244a5.892 5.892 0 0 1-2.052-2.088v-3.156zm18.179 10.836a.504.504 0 0 1 0 .708l-1.716 1.716a.504.504 0 0 1-.708 0l-4.248-4.248a.206.206 0 0 1-.007-.007c-.02-.02-.028-.045-.043-.066a10.736 10.736 0 0 1-6.334 2.065C4.835 21.599 0 16.764 0 10.799S4.835 0 10.8 0s10.799 4.835 10.799 10.8c0 2.369-.772 4.553-2.066 6.333.025.017.052.028.074.05l4.248 4.248zm-5.028-10.632a8.015 8.015 0 1 0-8.028 8.028h.024a8.016 8.016 0 0 0 8.004-8.028zm-4.86 4.98a6.002 6.002 0 0 0 2.04-2.184v-1.764h-2.04v3.948zm-4.5.948c.442.057.887.08 1.332.072.4.025.8.025 1.2 0V7.692H9.468v9.035z"/></g>
+    </g>
+  <text x="839" y="156" class="t">Warehouse</text>
+  <text x="839" y="188" class="s">BigQuery</text>
+  <text x="839" y="210" class="s">modeled layers</text>
+  <text x="839" y="232" class="s">staging → marts</text>
+  <rect x="1089" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="1109" y="20" width="198" height="2" fill="#a78bfa" opacity=".9"/>
+    <text x="1111" y="54" class="k" fill="#a78bfa">05 · TRANSFORM</text>
+  <g transform="translate(1111 70) scale(0.1875)">
+      <rect width="256" height="256" rx="60" fill="#242938"/>
+      <g transform="translate(48 48) scale(6.6667)"><path fill="#FF694B" d="M17.9004 9.3763a8.1488 8.1488 0 0 0-3.0421-3.1206l1.7708.8385a10.2874 10.2874 0 0 1 3.74 3.0007l3.234-5.9295a2.8546 2.8546 0 0 0-.0611-2.9604C22.7566.0371 21.2112-.3409 19.9754.3327l-5.8749 3.2101a4.3612 4.3612 0 0 1-4.1761 0L4.1769.408a2.8545 2.8545 0 0 0-2.9592.0632c-1.1673.7853-1.5452 2.33-.8723 3.5655L3.55 9.9106a4.3612 4.3612 0 0 1 0 4.1772l-3.1272 5.743a2.86 2.86 0 0 0 .085 2.9974c.794 1.1438 2.3225 1.5054 3.5448.8385l6.0581-3.3049a10.2877 10.2877 0 0 1-3.0051-3.7454l-.8374-1.7708a8.148 8.148 0 0 0 3.1206 3.0421l10.5832 5.779c1.2213.666 2.7481.3055 3.5426-.8363a2.8699 2.8699 0 0 0 .0796-3.0018L17.9004 9.3763zm3.3801-7.7351c.6022 0 1.0904.4882 1.0904 1.0904s-.4882 1.0904-1.0904 1.0904-1.0904-.4882-1.0904-1.0904.4882-1.0904 1.0904-1.0904zM2.7442 3.822c-.6022 0-1.0904-.4882-1.0904-1.0904s.4882-1.0904 1.0904-1.0904 1.0904.4882 1.0904 1.0904S3.3464 3.822 2.7442 3.822zm0 18.5363c-.6022 0-1.0904-.4882-1.0904-1.0904 0-.6022.4882-1.0904 1.0904-1.0904s1.0904.4882 1.0904 1.0904c0 .6022-.4882 1.0904-1.0904 1.0904zm10.3585-11.4489c-1.2008-.0035-2.177.9672-2.1805 2.1679a2.1738 2.1738 0 0 0 .7052 1.6091c-1.4872-.2091-2.5234-1.5843-2.3142-3.0716.2091-1.4872 1.5843-2.5234 3.0716-2.3142a2.7194 2.7194 0 0 1 2.3142 2.3142 2.1623 2.1623 0 0 0-1.5963-.7054zm8.1778 11.4489c-.6022 0-1.0904-.4882-1.0904-1.0904 0-.6022.4882-1.0904 1.0904-1.0904s1.0904.4882 1.0904 1.0904c0 .6022-.4882 1.0904-1.0904 1.0904z"/></g>
+    </g>
+  <text x="1111" y="156" class="t">Transform</text>
+  <text x="1111" y="188" class="s">dbt · Dataform</text>
+  <text x="1111" y="210" class="s">tests, docs,</text>
+  <text x="1111" y="232" class="s">lineage</text>
+  <rect x="1361" y="20" width="238" height="236" rx="20" fill="url(#card)" stroke="#24304a"/>
+    <rect x="1381" y="20" width="198" height="2" fill="#f472b6" opacity=".9"/>
+    <text x="1383" y="54" class="k" fill="#f472b6">06 · SERVE</text>
+  <g transform="translate(1383 70) scale(0.1875)">
+      <rect width="256" height="256" rx="60" fill="#242938"/>
+      <g transform="translate(48 48) scale(6.6667)"><path fill="#4285F4" d="M11.9475 0c-1.1598.0021-2.0982.944-2.096 2.1038a2.1 2.1 0 00.356 1.166l.895-.8959a.884.884 0 11.565.564l-.895.895c.9593.6478 2.2621.3953 2.91-.564.6478-.9593.3953-2.262-.564-2.91A2.096 2.096 0 0011.9475 0zm-.835 6.1128a3.2629 3.2629 0 00-.653-1.965l-1.164 1.162a1.667 1.667 0 01-.318 2.012l.632 1.5449a3.2819 3.2819 0 001.503-2.754zm-3.2499 1.666h-.03c-.9217.0009-1.6697-.7455-1.6707-1.6673-.001-.9217.7454-1.6697 1.6672-1.6707a1.669 1.669 0 01.9195.275l1.152-1.152c-1.4069-1.141-3.4724-.9257-4.6135.4811s-.9257 3.4723.481 4.6135a3.2799 3.2799 0 002.7275.6652l-.633-1.5439v-.001zm4.1279 1.3359c-.728 0-1.452.106-2.15.315l.922 2.2519c2.6872-.6819 5.4184.9438 6.1002 3.631.6818 2.6873-.9439 5.4184-3.6311 6.1002s-5.4184-.9439-6.1002-3.631c-.5682-2.2394.4655-4.5774 2.5041-5.6643l-.91-2.2449c-3.6908 1.808-5.2173 6.2657-3.4093 9.9567l.0005.001c1.808 3.6909 6.2657 5.2173 9.9567 3.4093l.001-.0005c3.6913-1.8071 5.2187-6.2645 3.4116-9.9558a7.4417 7.4417 0 00-6.6865-4.1696h-.008l-.001.001z"/></g>
+    </g>
+  <g transform="translate(1441 70) scale(0.1875)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#242938" rx="60"/><path fill="#fff" d="M121.451 28.0537C121.021 28.0928 119.652 28.2297 118.42 28.3274C90.0137 30.8885 63.4057 46.216 46.5533 69.7742C37.1691 82.8729 31.1672 97.7312 28.8993 113.469C28.0978 118.963 28 120.586 28 128.034C28 135.483 28.0978 137.106 28.8993 142.599C34.3343 180.155 61.0596 211.71 97.306 223.401C103.797 225.493 110.639 226.92 118.42 227.78C121.451 228.112 134.549 228.112 137.58 227.78C151.011 226.294 162.389 222.971 173.611 217.242C175.331 216.363 175.664 216.128 175.429 215.933C175.273 215.815 167.941 205.981 159.144 194.095L143.152 172.492L123.112 142.834C112.086 126.529 103.015 113.195 102.936 113.195C102.858 113.176 102.78 126.353 102.741 142.443C102.682 170.615 102.663 171.749 102.311 172.413C101.803 173.371 101.412 173.762 100.59 174.193C99.9648 174.505 99.4174 174.564 96.4653 174.564H93.0831L92.1838 173.997C91.5973 173.626 91.1672 173.137 90.8739 172.57L90.4633 171.69L90.5024 132.492L90.5611 93.2737L91.1672 92.5112C91.48 92.1007 92.1447 91.5728 92.6139 91.3186C93.4154 90.9276 93.7283 90.8885 97.1105 90.8885C101.099 90.8885 101.763 91.0449 102.8 92.1789C103.093 92.4917 113.943 108.836 126.925 128.523C139.906 148.21 157.658 175.092 166.377 188.288L182.213 212.277L183.015 211.749C190.111 207.135 197.619 200.566 203.562 193.723C216.211 179.197 224.364 161.485 227.101 142.599C227.902 137.106 228 135.483 228 128.034C228 120.586 227.902 118.963 227.101 113.469C221.666 75.913 194.94 44.3587 158.694 32.6676C152.301 30.5953 145.498 29.1681 137.873 28.3079C135.996 28.1124 123.073 27.8973 121.451 28.0537ZM162.389 88.5425C163.327 89.0117 164.09 89.911 164.364 90.8494C164.52 91.3577 164.559 102.228 164.52 126.724L164.461 161.876L158.264 152.374L152.047 142.873V117.321C152.047 100.801 152.125 91.5141 152.242 91.0645C152.555 89.9697 153.239 89.1095 154.178 88.6011C154.979 88.1906 155.273 88.1515 158.342 88.1515C161.236 88.1515 161.744 88.1906 162.389 88.5425Z"/></svg>
+        </g>
+        
+  
+    </g>
+  <text x="1383" y="156" class="t">Serve</text>
+  <text x="1383" y="188" class="s">Looker Studio</text>
+  <text x="1383" y="210" class="s">dashboards, apps</text>
+  <text x="1383" y="232" class="s">and APIs</text>
+  <rect x="1" y="300" width="1598" height="70" rx="18" fill="#0b1122" stroke="#24304a" stroke-dasharray="5 5"/>
+  <text x="25" y="341" class="k" fill="#94a3c4">FOUNDATION · AS CODE</text>
+  <g transform="translate(281 318) scale(0.1328125)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="256" height="256" rx="60" fill="#242938"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M153.497 228V164.881L102.068 133.309V196.427L153.497 228ZM153.497 157.983L102.068 126.411V63.2666L153.497 94.8387V157.983Z" fill="#5C4EE5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M210.613 126.385V63.2407L159.16 94.8128V157.957L210.613 126.385Z" fill="#4040B2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M96.4291 122.717V59.5722L45 28V91.1442L96.4291 122.717Z" fill="#5C4EE5"/>
+</svg>
+
+        </g>
+        
+  
+    </g>
+  <text x="325" y="341" class="f">Terraform</text>
+  <g transform="translate(459.8 318) scale(0.1328125)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#2396ED" rx="60"/><path fill="#fff" d="M141.187 122.123H161.904V103.379H141.187V122.123ZM116.525 122.123H137.241V103.379H116.525V122.123ZM92.3554 122.123H113.072V103.379H92.3554V122.123ZM68.1859 122.123H88.4093V103.379H68.1859V122.123ZM43.5233 122.123H64.2399V103.379H43.5233V122.123ZM68.1859 99.4333H88.4093V80.6896H68.1859V99.4333ZM92.3554 99.4333H113.072V80.6896H92.3554V99.4333ZM116.525 99.4333H137.241V80.6896H116.525V99.4333ZM116.525 76.7436H137.241V58H116.525V76.7436ZM228 113.738C228 113.738 219.121 105.352 200.871 108.312C198.898 94.0075 183.607 85.6222 183.607 85.6222C183.607 85.6222 169.303 102.886 179.661 122.123C176.702 123.603 171.769 125.576 164.37 125.576H28.7257C26.2594 134.948 26.2594 197.097 94.3284 197.097C143.16 197.097 179.661 174.408 196.925 132.974C222.574 134.948 228 113.738 228 113.738Z"/></svg>
+        </g>
+        
+  
+    </g>
+  <text x="503.8" y="341" class="f">Docker</text>
+  <g transform="translate(611 318) scale(0.1328125)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="256" height="256" rx="60" fill="#242938"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M76.0652 43C94.3271 43 109.13 57.8034 109.13 76.0652C109.13 94.3271 94.3271 109.13 76.0652 109.13C57.8034 109.13 43 94.3271 43 76.0652C43 57.8034 57.8034 43 76.0652 43Z" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M123.826 109.13C136 109.13 145.87 119 145.87 131.174C145.87 143.348 136 153.217 123.826 153.217C111.652 153.217 101.783 143.348 101.783 131.174C101.783 119 111.652 109.13 123.826 109.13Z" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M123.826 167.913C136 167.913 145.87 177.782 145.87 189.957C145.87 202.131 136 212 123.826 212C111.652 212 101.783 202.131 101.783 189.957C101.783 177.782 111.652 167.913 123.826 167.913Z" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M189.957 167.913C202.131 167.913 212 177.782 212 189.957C212 202.131 202.131 212 189.957 212C177.782 212 167.913 202.131 167.913 189.957C167.913 177.782 177.782 167.913 189.957 167.913Z" stroke="#79B8FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M131.308 126.056L120.032 137.317L114.555 131.859" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M189.957 109.13C202.131 109.13 212 119 212 131.174C212 143.348 202.131 153.217 189.957 153.217C177.782 153.217 167.913 143.348 167.913 131.174C167.913 119 177.782 109.13 189.957 109.13Z" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M197.438 126.056L186.162 137.317L180.686 131.859" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65.0435 64.3532C65.0435 61.4617 68.2291 59.7035 70.6756 61.2446L89.461 73.0784C91.7583 74.5255 91.7462 77.8786 89.439 79.3093L70.6534 90.9574C68.206 92.4747 65.0435 90.7145 65.0435 87.8349V64.3532Z" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72.3914 109.13V164.239C72.3914 178.442 84.0641 189.956 98.1087 189.956H101.783" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M101.595 134.847C103.624 134.847 105.269 133.203 105.269 131.173C105.269 129.144 103.624 127.5 101.595 127.5V134.847ZM68.7173 109.259C68.7173 123.391 80.1736 134.847 94.3054 134.847V127.5C84.2315 127.5 76.0651 119.333 76.0651 109.259H68.7173ZM94.3054 134.847H101.595V127.5H94.3054V134.847Z" fill="#2088FF"/>
+<path d="M146.071 131.174H167.911" stroke="#2088FF" stroke-width="7.34783" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M116.478 186.283C118.506 186.283 120.152 187.929 120.152 189.957C120.152 191.987 118.506 193.631 116.478 193.631C114.451 193.631 112.804 191.987 112.804 189.957C112.804 187.929 114.451 186.283 116.478 186.283Z" fill="#79B8FF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M131.174 186.283C133.201 186.283 134.848 187.929 134.848 189.957C134.848 191.987 133.201 193.631 131.174 193.631C129.147 193.631 127.5 191.987 127.5 189.957C127.5 187.929 129.147 186.283 131.174 186.283Z" fill="#79B8FF"/>
+<path d="M164.257 189.981L160.537 190.103" stroke="#79B8FF" stroke-width="7.34783" stroke-linecap="round"/>
+</svg>
+
+        </g>
+        
+  
+    </g>
+  <text x="655" y="341" class="f">GitHub Actions</text>
+  <g transform="translate(835.8 318) scale(0.1328125)">
+      
+      
+    
+        <g transform="translate(0, 0)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256"><rect width="256" height="256" fill="#242938" rx="60"/><path fill="#EA4335" d="M161.009 92.3895L178.394 75.0043L179.553 67.684C147.873 38.877 97.5124 42.1434 68.9538 74.4997C61.021 83.4864 55.1358 94.6903 51.9976 106.26L58.2241 105.382L92.9937 99.6489L95.678 96.9036C111.144 79.9176 137.295 77.6325 155.153 92.0848L161.009 92.3895Z"/><path fill="#4285F4" d="M203.16 105.749C199.164 91.033 190.96 77.8041 179.553 67.6846L155.153 92.0846C165.456 100.503 171.326 113.186 171.074 126.489V130.82C183.067 130.82 192.79 140.542 192.79 152.535C192.79 164.529 183.067 174.008 171.074 174.008H127.581L123.311 178.644V204.691L127.581 208.778H171.074C202.269 209.021 227.755 184.173 227.998 152.978C228.145 134.069 218.823 116.342 203.16 105.749Z"/><path fill="#34A853" d="M84.1488 208.778H127.581V174.008H84.1488C81.0543 174.007 78.0574 173.342 75.2433 172.056L69.0816 173.947L51.5746 191.332L50.0496 197.249C59.8675 204.662 71.8464 208.831 84.1488 208.778Z"/><path fill="#FBBC05" d="M84.1487 95.9886C52.9526 96.1746 27.8151 121.615 28.001 152.811C28.1049 170.231 36.2409 186.629 50.0495 197.249L75.2432 172.056C64.3128 167.118 59.4557 154.254 64.394 143.325C69.3315 132.395 82.1956 127.538 93.1245 132.475C97.9409 134.651 101.798 138.509 103.974 143.325L129.167 118.132C118.448 104.118 101.792 95.9254 84.1487 95.9886Z"/></svg>
+        </g>
+        
+  
+    </g>
+  <text x="879.8" y="341" class="f">Google Cloud</text>
+</svg>
