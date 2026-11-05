@@ -18,7 +18,7 @@ Open `profile.config.mjs`. Every field has a comment. Common changes:
 | Change location, company, intro | `chips` (hero) and `about` (bento grid) | `npm run build` then `npm run render hero` |
 | Add a project | copy an entry in `projects`, give it a new `id` | `npm run build` then `npm run render <id>` |
 | Remove a project | delete its entry | `npm run build` (and delete its `assets/Design/card-<id>.webp`) |
-| Reorder projects | reorder `projects` | `npm run build` then `npm run render` (the cards show "01 / 06") |
+| Reorder projects | reorder `projects` | `npm run build` (cards carry no position number, so nothing re-renders) |
 | Add or remove a skill | `stacks[].items` | `npm run build` |
 | Change social links | `socials` | `npm run build` |
 | Edit the platform diagram | `platform.stages`, `platform.foundation` | `npm run build` |
@@ -34,14 +34,21 @@ All commands run from the `studio/` folder. **Don't edit `README.md` by hand**: 
   id: "my-tool",                 // used for the file name: assets/Design/card-my-tool.webp
   title: "My Tool",
   repo: "your-name/my-tool",     // the card links to github.com/<repo>
-  scene: "network",              // the 3D object: knot | shield | network | planet | cubes | chip
+  scene: "network",              // the 3D object: knot | shield | network | planet | cubes | chip | bars
   kicker: "data tooling",        // small label above the title
   lang: "Python", langColor: "#3572A5",
   accent: "#22d3ee",             // card glow and button colour
   desc: "One or two short sentences, about 110 characters at most so it fits on two lines.",
   tags: ["python", "airflow", "gcp"],
+  // optional:
+  spotlight: true,               // full-width wide card above the grid (use on one project)
+  status: "In progress",         // pulsing status pill on the card
+  private: true,                 // repo not public yet: the card isn't linked and has no arrow
+  haze: 0.3,                     // 0..1, how strong the coloured nebula behind the object is (default 1)
 },
 ```
+
+Once a private repo goes public, delete `private: true` and run `npm run build`; no re-render is needed unless the arrow should appear (`npm run render <id>`).
 
 Then `npm run build && npm run render my-tool`. One card takes about 4 minutes.
 
@@ -67,12 +74,15 @@ npm run build        # README, section headers, About grid, diagram, icons, gala
 npm run render       # record the 3D hero and every card (about 15 min, runs in parallel)
 npm run render hero  # just the hero
 npm run render nexus # just one card
+npm run render -- --cpu 0.25        # use at most a quarter of your cores (default 0.5)
 ```
+
+Rendering runs at low priority and, by default, uses at most half of your CPU cores, so your machine stays usable. Raise `--cpu` toward `1` to finish faster when you're not using the computer.
 
 | Output | Made by | Quality |
 |---|---|---|
 | `assets/Design/hero.webp` | `live/index.html`, recorded | 2048 px, 24 fps, quality 100, 3× supersampled |
-| `assets/Design/card-*.webp` | `live/card.html`, recorded | 1024 px, 20 fps, quality 90, 2.56× supersampled |
+| `assets/Design/card-*.webp` | `live/card.html`, recorded | 1024 px (spotlight: 2048 px wide), 20 fps, quality 90, 2.56× supersampled |
 | `assets/Design/*.svg` | `studio/assets.mjs` | vector |
 | `README.md` | `studio/readme.mjs` | |
 
@@ -99,7 +109,7 @@ The recorder renders each frame in headless Chrome on your GPU, captures frames 
 
 - **Colours:** the cyan, violet and pink palette is defined at the top of `live/index.html`, `live/kit.js` and `studio/assets.mjs`.
 - **The 3D core:** `live/index.html`. Every motion is periodic over `LOOP` seconds so recordings loop seamlessly; keep new motion periodic too.
-- **Card objects:** the builders `pipes`, `shield`, `network`, `planet`, `sorter` and `chip` in `live/card.html`. A new builder needs an entry in `SCENES`, and it must return an `update(u)` function where `u` runs from 0 to 1 over one loop.
+- **Card objects:** the builders `pipes`, `shield`, `network`, `planet`, `sorter`, `chip` and `bars` in `live/card.html`. A new builder needs an entry in `SCENES`, and it must return an `update(u)` function where `u` runs from 0 to 1 over one loop.
 
 ## How it works
 
@@ -126,7 +136,7 @@ profile.config.mjs ──► studio/assets.mjs ──► assets/Design/*.svg
 |---|---|
 | `skillicons.dev has no icon "x"` | That id doesn't exist; check [skillicons.dev](https://skillicons.dev) or use a Simple Icons `si:` export. |
 | `simple-icons has no export "x"` | Export names are `si` plus the slug with a capital first letter, for example `siGooglebigquery`. |
-| `unknown scene "x"` | `scene` must be one of `knot`, `shield`, `network`, `planet`, `cubes`, `chip`. |
+| `unknown scene "x"` | `scene` must be one of `knot`, `shield`, `network`, `planet`, `cubes`, `chip`, `bars`. |
 | Recording is very slow | Make sure Chrome uses your GPU: a renderer starting with `ANGLE (… Metal` or `… D3D11` is good; `SwiftShader` means software rendering. |
 | Snake image is broken | It appears after the first metrics workflow run creates the `output` branch. |
 | Stats show an error | Check the `METRICS_TOKEN` secret and its scopes, then re-run the "Generate Metrics" workflow. |

@@ -19,7 +19,7 @@
   canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
   .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 52%; background: linear-gradient(180deg, transparent, rgba(5,7,15,.86) 38%, #05070f); }
 
-  .top { position: absolute; top: 34px; left: 40px; right: 40px; display: flex; justify-content: space-between; align-items: center; font: 500 19px "Geist Mono", monospace; color: #7f8fb2; }
+  .top { position: absolute; top: 34px; left: 40px; right: 40px; display: flex; justify-content: space-between; min-height: 40px; align-items: center; font: 500 19px "Geist Mono", monospace; color: #7f8fb2; }
   .top b { color: #eef2ff; font-weight: 500; }
   .lang { display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.09); backdrop-filter: blur(10px); }
   .lang i { width: 11px; height: 11px; border-radius: 50%; }
@@ -33,6 +33,19 @@
   .tag { font: 500 18px "Geist Mono", monospace; color: #d3dcf3; padding: 9px 16px; border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.09); }
   .go { flex: none; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #05070f; box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 60%, transparent); }
   .go svg { width: 26px; height: 26px; }
+  .left { display: flex; align-items: center; gap: 16px; }
+  .status { display: none; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px; font: 600 15px Geist, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .status i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  body.has-status .status { display: inline-flex; }
+  body.no-link .go { display: none; }
+
+  /* spotlight: wide card, copy on the left, scene on the right */
+  body.wide .fade { top: 0; bottom: 0; right: auto; width: 62%; height: auto; background: linear-gradient(90deg, #05070f 0%, rgba(5,7,15,.92) 55%, transparent); }
+  body.wide .top { top: 40px; left: 56px; right: 48px; }
+  body.wide .body { left: 56px; right: auto; width: 46%; top: 50%; bottom: auto; transform: translateY(-42%); }
+  body.wide h2 { font-size: 84px; }
+  body.wide p { font-size: 27px; max-width: 100%; }
 </style>
 </head>
 <body>
@@ -40,7 +53,7 @@
   <canvas id="gl"></canvas>
   <div class="fade"></div>
   <div class="sheen" id="sheen"></div>
-  <div class="top"><span id="idx"></span><span class="lang"><i id="langDot"></i><span id="lang"></span></span></div>
+  <div class="top"><span class="left"><span class="status"><i id="statusDot"></i><span id="status"></span></span></span><span class="lang"><i id="langDot"></i><span id="lang"></span></span></div>
   <div class="body">
     <div class="kicker" id="kicker"></div>
     <h2 id="title"></h2>
@@ -69,27 +82,31 @@ const LOOP = 4;
 
 
 // the 3D object each `scene` name in profile.config.mjs maps to
-const SCENES = { knot: pipes, shield, network, planet, cubes: sorter, chip };
+const SCENES = { knot: pipes, shield, network, planet, cubes: sorter, chip, bars };
 const id = params.get("id") ?? profile.projects[0].id;
 const index = profile.projects.findIndex((p) => p.id === id);
 if (index < 0) throw new Error(`no project "${id}" in profile.config.mjs`);
 const P = profile.projects[index];
 if (!SCENES[P.scene]) throw new Error(`unknown scene "${P.scene}" for ${id}; use one of ${Object.keys(SCENES).join(", ")}`);
-const pad = (n) => String(n).padStart(2, "0");
 document.documentElement.style.setProperty("--accent", P.accent);
-document.getElementById("idx").innerHTML = `<b>${pad(index + 1)}</b> / ${pad(profile.projects.length)}`;
 document.getElementById("lang").textContent = P.lang;
 document.getElementById("langDot").style.cssText = `background:${P.langColor};box-shadow:0 0 12px ${P.langColor}`;
 document.getElementById("kicker").textContent = P.kicker;
 document.getElementById("title").textContent = P.title;
 document.getElementById("desc").textContent = P.desc;
 document.getElementById("tags").innerHTML = P.tags.map((t) => `<span class="tag">${t}</span>`).join("");
+const WIDE = innerWidth / innerHeight > 1.3; // the spotlight card is recorded wide
+document.body.classList.toggle("wide", WIDE);
+document.body.classList.toggle("no-link", !!P.private);
+if (P.status) { document.body.classList.add("has-status"); document.getElementById("status").textContent = P.status; }
 
 const { scene, camera, composer, backdrop } = createStage(document.getElementById("gl"), { capture: CAPTURE });
 backdrop.material.uniforms.uTint.value.set(P.accent);
+backdrop.material.uniforms.uHaze.value = P.haze ?? 1; // nebula strength behind the object; warm accents read as smoke, so turn it down
 const rig = new THREE.Group();
-rig.position.y = 1.3;
-rig.scale.setScalar(0.8);
+const BASE = WIDE ? { x: 3.35, y: 0.2, s: 0.95 } : { x: 0, y: 1.3, s: 0.8 };
+rig.position.set(BASE.x, BASE.y, 0);
+rig.scale.setScalar(BASE.s);
 scene.add(rig);
 const obj = SCENES[P.scene](rig);
 
@@ -316,12 +333,70 @@ function chip(root) {
   };
 }
 
+function bars(root) {
+  // a market floor of price bars; a pulse rolls across it and a glowing line traces today's prices
+  const NX = 12, NZ = 5, gap = 0.4, size = 0.28;
+  const geo = new RoundedBoxGeometry(size, 1, size, 3, 0.05);
+  geo.translate(0, 0.5, 0); // grow upward from the floor
+  // one material per bar (same recipe as the cubes scene) so each bar keeps a saturated price colour
+  const barsList = Array.from({ length: NX * NZ }, () => new THREE.Mesh(geo, new THREE.MeshPhysicalMaterial({
+    metalness: 0.2, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.05, emissiveIntensity: 0.15, envMapIntensity: 0.7,
+  })));
+  const low = new THREE.Color(0x059669), high = new THREE.Color(0xf59e0b), hot = new THREE.Color(0xe11d48), col = new THREE.Color();
+  const floor = new THREE.Mesh(new RoundedBoxGeometry(NX * gap + 0.5, 0.08, NZ * gap + 0.5, 4, 0.04), glassMaterial({ thickness: 0.3, attenuationColor: new THREE.Color(0xfde68a) }));
+  floor.position.y = -0.05;
+  const grid = new THREE.GridHelper(NX * gap + 0.3, NX, 0xfbbf24, 0xfbbf24);
+  grid.material.transparent = true; grid.material.opacity = 0.18; grid.scale.z = (NZ * gap + 0.3) / (NX * gap + 0.3); grid.position.y = 0.0;
+  const lineMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffd27a).multiplyScalar(1.6) });
+  let line = new THREE.Mesh(new THREE.BufferGeometry(), lineMat);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.06, 20, 14), glow(0xfff1c2, 1.6));
+  const halo = new THREE.PointLight(COLORS.amber, 3, 2);
+  const g = new THREE.Group();
+  g.add(floor, grid, ...barsList, line, head, halo);
+  g.position.y = -0.85;
+  root.add(g);
+  const x0 = -((NX - 1) * gap) / 2, z0 = -((NZ - 1) * gap) / 2;
+  const height = (ix, iz, u) => {
+    const base = 0.55 + 0.35 * Math.sin(ix * 0.55 + iz * 0.8 + u * TAU) + 0.2 * Math.sin(ix * 1.3 - iz * 0.4 - u * TAU * 2);
+    const at = u * (NX + 6) - 3; // the pulse enters off one edge and leaves off the other, so the loop is seamless
+    const pulse = Math.exp(-((ix - at) ** 2) / 1.1) * (0.9 - iz * 0.08);
+    return Math.max(0.12, base + pulse);
+  };
+  return (u) => {
+    g.rotation.set(0.42, -0.42 + 0.2 * Math.sin(u * TAU), 0);
+    let i = 0;
+    const top = [];
+    for (let iz = 0; iz < NZ; iz++) for (let ix = 0; ix < NX; ix++, i++) {
+      const h = height(ix, iz, u);
+      const bar = barsList[i];
+      bar.position.set(x0 + ix * gap, 0, z0 + iz * gap);
+      bar.scale.set(1, h, 1);
+      const k = Math.min(1, (h - 0.2) / 1.4);
+      // blend through hue, not RGB: an RGB emerald→amber blend goes muddy khaki in the middle
+      col.copy(low).lerpHSL(high, Math.min(1, k / 0.8));
+      if (k > 0.8) col.lerpHSL(hot, (k - 0.8) / 0.2);
+      bar.material.color.copy(col);
+      bar.material.emissive.copy(col);
+      if (iz === NZ - 1) top.push(new THREE.Vector3(x0 + ix * gap, h + 0.12, z0 + iz * gap));
+    }
+    // price line along the front row, rebuilt each frame as the bars move
+    const curve = new THREE.CatmullRomCurve3(top);
+    line.geometry.dispose();
+    line.geometry = new THREE.TubeGeometry(curve, 120, 0.022, 8, false);
+    const p = curve.getPointAt((u * 2) % 1);
+    head.position.copy(p);
+    halo.position.copy(p);
+  };
+}
+
 // ---------- loop ----------
 const sheen = document.getElementById("sheen");
 function frame(t) {
   const u = (t % LOOP) / LOOP;
   obj(u);
-  rig.position.y = 1.3 + 0.07 * Math.sin(u * TAU);
+  rig.position.y = BASE.y + 0.07 * Math.sin(u * TAU);
+  const st = document.getElementById("statusDot");
+  if (st) st.style.opacity = 0.45 + 0.55 * (0.5 + 0.5 * Math.cos(u * TAU * 4));
   sheen.style.transform = `translateX(${(u * 2 - 1) * 70}%)`;
   composer.render();
 }

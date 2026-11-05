@@ -49,10 +49,10 @@ export function createStage(canvas, { capture, bloom = [0.5, 0.4, 0.9] } = {}) {
     new THREE.PlaneGeometry(2, 2),
     new THREE.ShaderMaterial({
       depthWrite: false, depthTest: false,
-      uniforms: { uTint: { value: new THREE.Color(COLORS.violet) }, uAspect: { value: 1 } },
+      uniforms: { uTint: { value: new THREE.Color(COLORS.violet) }, uAspect: { value: 1 }, uHaze: { value: 1 } },
       vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, .9999, 1.); }`,
       fragmentShader: `
-        varying vec2 vUv; uniform vec3 uTint; uniform float uAspect;
+        varying vec2 vUv; uniform vec3 uTint; uniform float uAspect; uniform float uHaze;
         float h(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
         float n(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*f*(f*(f*6.-15.)+10.);
           return mix(mix(h(i),h(i+vec2(1,0)),f.x), mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x), f.y); }
@@ -61,7 +61,7 @@ export function createStage(canvas, { capture, bloom = [0.5, 0.4, 0.9] } = {}) {
           vec2 p = vUv * vec2(uAspect, 1.);
           float f = fbm(p * 2.4 + fbm(p * 1.3));
           vec3 col = vec3(.014,.018,.04);
-          col += uTint * .2 * smoothstep(.45, 1., f) * smoothstep(.85, .0, distance(vUv, vec2(.5, .72)));
+          col += uTint * .2 * uHaze * smoothstep(.45, 1., f) * smoothstep(.85, .0, distance(vUv, vec2(.5, .72)));
           col += vec3(.13,.83,.93) * .05 * smoothstep(.6, 1., f) * smoothstep(.7, .0, distance(vUv, vec2(.9, .95)));
           vec2 g = p * 22.;
           float grid = (1.-smoothstep(0.,.05,abs(fract(g.x)-.5)-.45)) + (1.-smoothstep(0.,.05,abs(fract(g.y)-.5)-.45));

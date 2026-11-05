@@ -1,5 +1,5 @@
 // Generates every static SVG in assets/Design from profile.config.mjs:
-// section headers, the About bento grid, the platform diagram, skill rows,
+// section headers, the platform diagram, skill rows,
 // social and call-to-action buttons, and the divider.
 //   node studio/assets.mjs
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -55,93 +55,6 @@ function header(slug, n, title, sub) {
   <text x="170" y="112" class="s">${esc(sub)}</text>
   <rect x="170" y="134" width="${W - 170}" height="1.5" fill="url(#line)"/>
   <g class="spark"><circle cx="190" cy="134.75" r="6" fill="${CYAN}" filter="url(#glow)"/><circle cx="190" cy="134.75" r="2.5" fill="#fff"/></g>
-</svg>
-`);
-}
-
-// ── About: bento grid ───────────────────────────────────────────────────────
-async function about() {
-  const a = profile.about;
-  const W = 1600, H = 560, g = 20, col1 = 540;
-  const right = W - col1 - g, half = (right - g) / 2, rowH = (H - g) / 2;
-
-  let avatar = "";
-  try {
-    const res = await fetch(`https://github.com/${profile.github}.png?size=256`);
-    if (res.ok) avatar = `data:${res.headers.get("content-type") ?? "image/png"};base64,${Buffer.from(await res.arrayBuffer()).toString("base64")}`;
-  } catch {}
-
-  const tileRect = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="26" fill="url(#card)" stroke="${BORDER}"/>
-  <rect x="${x + 26}" y="${y}" width="${w - 52}" height="1.5" fill="#fff" opacity=".10"/>`;
-  const kicker = (x, y, text, color = CYAN) => `<text x="${x}" y="${y}" class="k" fill="${color}">${esc(text.toUpperCase())}</text>`;
-
-  // tile A: identity
-  const intro = wrap(a.intro, 44).map((l, i) => `<text x="44" y="${366 + i * 30}" class="b">${esc(l)}</text>`).join("");
-  const A = `${tileRect(0, 0, col1, H)}
-  <circle cx="108" cy="112" r="66" fill="none" stroke="url(#h)" stroke-width="3"/>
-  ${avatar ? `<image href="${avatar}" x="48" y="52" width="120" height="120" clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>` : `<circle cx="108" cy="112" r="60" fill="#1b2540"/>`}
-  <circle cx="160" cy="160" r="11" fill="#0b1122"/><circle cx="160" cy="160" r="7" fill="#4ade80"><animate attributeName="opacity" values="1;.35;1" dur="2.4s" repeatCount="indefinite"/></circle>
-  <text x="44" y="240" class="name">${esc(profile.name)}</text>
-  <text x="44" y="282" class="role" fill="url(#h)">${esc(a.role)}</text>
-  <text x="44" y="310" class="s">at ${esc(a.company)}</text>
-  ${intro}
-  <g transform="translate(44 ${H - 58})">
-    <path d="M8 0C3.6 0 0 3.5 0 7.9 0 13.8 8 22 8 22s8-8.2 8-14.1C16 3.5 12.4 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="${CYAN}"/>
-    <text x="28" y="16" class="s" style="fill:#c9d3ee">${esc(a.location)}</text>
-  </g>`;
-
-  // tile B: focus
-  const bx = col1 + g;
-  const focus = a.focus.map((f, i) => `<g transform="translate(${bx + 40} ${84 + i * 50})">
-      <rect width="34" height="34" rx="10" fill="#ffffff" fill-opacity=".05" stroke="${BORDER}"/>
-      <text x="17" y="23" class="num" fill="url(#h)">${i + 1}</text>
-      <text x="52" y="24" class="f">${esc(f)}</text>
-    </g>`).join("");
-  const B = `${tileRect(bx, 0, right, rowH)}
-  ${kicker(bx + 40, 52, "Focus")}
-  ${focus}`;
-
-  // tile C: currently building
-  const cy0 = rowH + g;
-  const C = `${tileRect(bx, cy0, half, rowH)}
-  <circle cx="${bx + 46}" cy="${cy0 + 47}" r="5" fill="${PINK}"><animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/></circle>
-  ${kicker(bx + 60, cy0 + 52, "Currently building", PINK)}
-  <text x="${bx + 40}" y="${cy0 + 112}" class="big" fill="url(#h)">${esc(a.building.name)}</text>
-  ${wrap(a.building.text, 40).map((l, i) => `<text x="${bx + 40}" y="${cy0 + 152 + i * 28}" class="b">${esc(l)}</text>`).join("")}`;
-
-  // tile D: ask me about + also
-  const dx = bx + half + g;
-  let cx = dx + 40, cyy = cy0 + 82;
-  const chips = a.askMeAbout.map((t) => {
-    const w = t.length * 9.4 + 32;
-    if (cx + w > dx + half - 30) { cx = dx + 40; cyy += 48; }
-    const s = `<rect x="${cx}" y="${cyy}" width="${w}" height="36" rx="18" fill="#ffffff" fill-opacity=".05" stroke="${BORDER}"/><text x="${cx + w / 2}" y="${cyy + 23.5}" class="chip">${esc(t)}</text>`;
-    cx += w + 10;
-    return s;
-  }).join("");
-  const D = `${tileRect(dx, cy0, half, rowH)}
-  ${kicker(dx + 40, cy0 + 52, "Ask me about", VIOLET)}
-  ${chips}
-  ${wrap(`Also: ${a.also}`, 42).map((l, i) => `<text x="${dx + 40}" y="${cy0 + rowH - 34 - (wrap(`Also: ${a.also}`, 42).length - 1 - i) * 26}" class="s">${esc(l)}</text>`).join("")}`;
-
-  write("about.svg", `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(`${profile.name}, ${a.role} at ${a.company}, ${a.location}. ${a.intro}`)}">
-  <title>About ${esc(profile.name)}</title>
-  <defs>${GRADIENT}${CARD}<clipPath id="av"><circle cx="108" cy="112" r="60"/></clipPath></defs>
-  <style>
-    .k { font: 700 13px ${SANS}; letter-spacing: .18em; }
-    .name { font: 800 44px ${SANS}; fill: #eef2ff; letter-spacing: -1.2px; }
-    .role { font: 700 24px ${SANS}; letter-spacing: -.3px; }
-    .s { font: 400 18px ${SANS}; fill: #8b98b5; }
-    .b { font: 400 19px ${SANS}; fill: #b4c0da; }
-    .f { font: 500 20px ${SANS}; fill: #dbe4ff; }
-    .num { font: 800 17px ${SANS}; text-anchor: middle; }
-    .big { font: 800 44px ${SANS}; letter-spacing: -1px; }
-    .chip { font: 500 15.5px ${SANS}; fill: #d3dcf3; text-anchor: middle; }
-  </style>
-  ${A}
-  ${B}
-  ${C}
-  ${D}
 </svg>
 `);
 }
@@ -268,7 +181,6 @@ function divider() {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const order = ["about", "platform", "projects", "stack", "galaxy", "stats"].filter((k) => profile.sections[k] ?? true);
   order.forEach((k, i) => header(k, i + 1, ...profile.headers[k]));
-  if (profile.sections.about) await about();
   if (profile.sections.platform) await platform();
   for (const s of profile.stacks) await stackRow(s);
   for (const s of profile.socials) await social(s);

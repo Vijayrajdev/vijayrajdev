@@ -31,17 +31,26 @@ ${p.socials.map((s) => `  <a href="${s.url}"><img src="assets/Design/social-${sl
 
 if (on("about")) blocks.push(`${header("about")}
 
-<img src="assets/Design/about.svg" width="100%" alt="${p.name}, ${p.about.role} at ${p.about.company}, ${p.about.location}. ${p.about.intro}" />`);
+<img src="assets/Design/about.webp" width="100%" alt="${p.name}, ${p.about.role} at ${p.about.company}, ${p.about.location}. ${p.about.intro}" />`);
 
 if (on("platform")) blocks.push(`${header("platform")}
 
 <img src="assets/Design/platform.svg" width="100%" alt="${p.platform.stages.map((s) => `${s.title}: ${s.lines.join(", ")}`).join("; ")}" />`);
 
-if (on("projects")) blocks.push(`${header("projects")}
-
+if (on("projects")) {
+  // private repos aren't linked (visitors would get a 404); a spotlight project gets a full-width card
+  const card = (pr, width) => {
+    const img = `<img src="assets/Design/card-${pr.id}.webp" width="${width}" alt="${pr.title}${pr.status ? ` (${pr.status.toLowerCase()})` : ""}: ${pr.desc}" />`;
+    return pr.private ? img : `<a href="https://github.com/${pr.repo}">${img}</a>`;
+  };
+  const spot = p.projects.filter((pr) => pr.spotlight);
+  const grid = p.projects.filter((pr) => !pr.spotlight);
+  blocks.push(`${header("projects")}
+${spot.map((pr) => `\n${card(pr, "100%")}\n`).join("")}
 <p align="center">
-${p.projects.map((pr) => `  <a href="https://github.com/${pr.repo}"><img src="assets/Design/card-${pr.id}.webp" width="49%" alt="${pr.title}: ${pr.desc}" /></a>`).join("\n")}
+${grid.map((pr) => `  ${card(pr, "49%")}`).join("\n")}
 </p>`);
+}
 
 if (on("stack")) blocks.push(`${header("stack")}
 

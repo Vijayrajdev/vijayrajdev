@@ -53,13 +53,13 @@ export default {
     role: "Senior Data Engineer",
     company: "Ingram Micro",
     location: "Chennai, India",
-    intro: "I design and run data platforms on Google Cloud, from ingestion to the dashboards people trust.",
+    intro: "I design and run data platforms, from ingestion to the dashboards people trust, on Databricks and Google Cloud.",
     focus: [
       "Data platforms that build (and heal) themselves",
-      "dbt, BigQuery, Dataform and Terraform on GCP",
+      "Spark, dbt and Databricks; BigQuery and Terraform on GCP",
       "Agentic automation for the boring parts of data work",
     ],
-    building: { name: "Pipewright", text: "Raw files in; reviewed SQL, tests and pipelines out." },
+    building: { name: "Mandi-Pulse", text: "Price intelligence for India's mandis, on Spark, dbt and Databricks." },
     askMeAbout: ["data modeling", "pipelines", "cloud warehouses", "dbt"],
     also: "Full-stack apps with React, Next.js and Node",
   },
@@ -84,10 +84,22 @@ export default {
   // ── Projects ───────────────────────────────────────────────────────────────
   // Each becomes an animated 3D card. To add one, copy an entry, give it a new
   // id, and run `npm run render` (or `npm run render -- <id>` for just that card).
-  //   scene: knot | shield | network | planet | cubes | chip  (the 3D object)
+  //   scene: the 3D object (list below)
   //   accent: card highlight colour; langColor: the dot next to the language
   //   desc: keep it to ~110 characters so it fits on two lines
+  //   scene: knot | shield | network | planet | cubes | chip | bars
+  //   spotlight: true   renders a full-width wide card above the grid (use it on one project)
+  //   status: "In progress"   adds a pulsing status pill
+  //   private: true     the repo isn't public yet: the card isn't linked and shows no arrow
+  //   haze: 0..1        strength of the coloured nebula behind the 3D object (default 1)
   projects: [
+    {
+      id: "mandi-pulse", title: "Mandi-Pulse", repo: "Vijayrajdev/mandi-pulse", scene: "bars",
+      spotlight: true, status: "In progress", private: true, haze: 0.15,
+      kicker: "data platform", lang: "Python", langColor: "#3572A5", accent: "#fbbf24",
+      desc: "Price intelligence for India's agricultural wholesale markets. Daily AGMARKNET prices from every mandi, collected, cleaned and tracked over time.",
+      tags: ["pyspark", "dbt", "databricks", "data.gov.in"],
+    },
     {
       id: "pipewright", title: "Pipewright", repo: "Vijayrajdev/Pipewright", scene: "knot",
       kicker: "data tooling", lang: "TypeScript", langColor: "#3178c6", accent: "#22d3ee",

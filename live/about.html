@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=block" rel="stylesheet" />
+<style>
+  /* Recorded at 1600x560. Tiles are HTML; the 3D objects live on a transparent canvas laid over them. */
+  :root { --cyan: #22d3ee; --violet: #a78bfa; --pink: #f472b6; --amber: #fbbf24; --border: rgba(255,255,255,.08); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1600px; height: 560px; background: transparent; color: #eef2ff; font-family: Geist, system-ui, sans-serif; overflow: hidden; }
+  .grid { position: absolute; inset: 0; display: grid; grid-template-columns: 540px 510px 510px; grid-template-rows: 270px 270px; gap: 20px; }
+  .tile {
+    position: relative; border-radius: 26px; overflow: hidden; padding: 40px;
+    background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--glow, var(--violet)) 14%, transparent), transparent 60%), linear-gradient(180deg, #121a31, #0a1020);
+    box-shadow: inset 0 0 0 1px var(--border), inset 0 1px 0 rgba(255,255,255,.1);
+  }
+  .tile::after { /* faint grid texture */
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 28px 28px; mask-image: radial-gradient(90% 90% at 80% 20%, #000, transparent);
+  }
+  .k { font: 700 13px Geist; letter-spacing: .2em; text-transform: uppercase; color: var(--c, var(--cyan)); display: flex; align-items: center; gap: 10px; }
+  .k i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 12px currentColor; }
+  .grad { background: linear-gradient(90deg, var(--cyan), var(--violet) 55%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .me { grid-row: span 2; --glow: var(--cyan); }
+  .avatar { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; position: relative; z-index: 1;
+    box-shadow: 0 0 0 3px #0a1020, 0 0 0 5px transparent, 0 18px 40px rgba(0,0,0,.5); }
+  .ring { position: absolute; left: 36px; top: 36px; width: 136px; height: 136px; border-radius: 50%; padding: 3px;
+    background: conic-gradient(from var(--a, 0deg), var(--cyan), var(--violet), var(--pink), var(--cyan)); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0); }
+  .online { position: absolute; left: 140px; top: 140px; width: 22px; height: 22px; border-radius: 50%; background: #0a1020; display: grid; place-items: center; z-index: 2; }
+  .online i { width: 12px; height: 12px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 12px #4ade80; }
+  .name { margin-top: 30px; font-weight: 800; font-size: 46px; letter-spacing: -.035em; }
+  .role { margin-top: 6px; font-weight: 700; font-size: 25px; letter-spacing: -.01em; }
+  .co { margin-top: 4px; color: #8b98b5; font-size: 18px; }
+  .intro { margin-top: 20px; color: #b4c0da; font-size: 19px; line-height: 1.55; max-width: 440px; }
+  .loc { position: absolute; left: 40px; bottom: 34px; display: flex; align-items: center; gap: 10px; color: #c9d3ee; font-size: 18px; }
+
+  .focus { grid-column: span 2; --glow: var(--violet); }
+  .focus ol { list-style: none; padding: 0; margin-top: 26px; display: grid; gap: 16px; max-width: 640px; }
+  .focus li { display: flex; align-items: center; gap: 18px; font-weight: 500; font-size: 21px; color: #dbe4ff; }
+  .focus li b { flex: none; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-weight: 800; font-size: 16px;
+    background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
+
+  .build { --glow: var(--amber); --c: var(--amber); }
+  .build h3 { margin-top: 22px; font-weight: 800; font-size: 40px; letter-spacing: -.03em;
+    background: linear-gradient(90deg, #fde68a, var(--amber) 50%, #fb7185); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .build p { margin-top: 12px; color: #b4c0da; font-size: 18px; line-height: 1.5; max-width: 230px; }
+
+  .ask { --glow: var(--pink); --c: var(--violet); }
+  .chips { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; max-width: 330px; }
+  .chips span { font-weight: 500; font-size: 16px; color: #d3dcf3; padding: 8px 15px; border-radius: 999px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
+  .also { position: absolute; left: 40px; right: 40px; bottom: 32px; color: #8b98b5; font-size: 16px; line-height: 1.45; }
+
+  canvas { position: absolute; inset: 0; width: 1600px; height: 560px; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="tile me">
+    <span class="ring" id="ring"></span>
+    <img class="avatar" id="avatar" alt="" />
+    <span class="online"><i id="online"></i></span>
+    <div class="name" id="name"></div>
+    <div class="role grad" id="role"></div>
+    <div class="co" id="co"></div>
+    <p class="intro" id="intro"></p>
+    <div class="loc"><svg width="16" height="22" viewBox="0 0 16 22"><path d="M8 0C3.6 0 0 3.5 0 7.9 0 13.8 8 22 8 22s8-8.2 8-14.1C16 3.5 12.4 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="#22d3ee"/></svg><span id="loc"></span></div>
+  </div>
+  <div class="tile focus"><div class="k">Focus</div><ol id="focus"></ol></div>
+  <div class="tile build"><div class="k"><i id="buildDot"></i>Currently building</div><h3 id="bname"></h3><p id="btext"></p></div>
+  <div class="tile ask"><div class="k">Ask me about</div><div class="chips" id="chips"></div><div class="also" id="also"></div></div>
+</div>
+<canvas id="gl" width="1600" height="560"></canvas>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import profile from "../profile.config.mjs";
+
+const LOOP = 6, TAU = Math.PI * 2;
+const a = profile.about;
+const $ = (id) => document.getElementById(id);
+$("avatar").src = `https://github.com/${profile.github}.png?size=256`;
+$("name").textContent = profile.name;
+$("role").textContent = a.role;
+$("co").textContent = `at ${a.company}`;
+$("intro").textContent = a.intro;
+$("loc").textContent = a.location;
+$("focus").innerHTML = a.focus.map((f, i) => `<li><b><span class="grad">${i + 1}</span></b>${f}</li>`).join("");
+$("bname").textContent = a.building.name;
+$("btext").textContent = a.building.text;
+$("chips").innerHTML = a.askMeAbout.map((t) => `<span>${t}</span>`).join("");
+$("also").textContent = `Also: ${a.also}`;
+
+// ---------- 3D overlay: orthographic camera in page pixels (x right, y down) ----------
+const W = 1600, H = 560;
+const renderer = new THREE.WebGLRenderer({ canvas: $("gl"), antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(devicePixelRatio);
+renderer.setSize(W, H, false);
+renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.OrthographicCamera(0, W, 0, -H, -2000, 2000);
+const key = new THREE.DirectionalLight(0xffffff, 2); key.position.set(-300, 400, 800); scene.add(key);
+const rim = new THREE.DirectionalLight(0xa78bfa, 2.5); rim.position.set(500, -200, -400); scene.add(rim);
+const at = (x, y) => new THREE.Vector3(x, -y, 0); // page px -> world
+
+// soft additive glow sprite, our stand-in for bloom on a transparent canvas
+const glowTex = (() => {
+  const c = document.createElement("canvas"); c.width = c.height = 128;
+  const g = c.getContext("2d"), r = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  r.addColorStop(0, "rgba(255,255,255,.9)"); r.addColorStop(.25, "rgba(255,255,255,.35)"); r.addColorStop(1, "rgba(255,255,255,0)");
+  g.fillStyle = r; g.fillRect(0, 0, 128, 128);
+  return new THREE.CanvasTexture(c);
+})();
+const glow = (color, size, opacity = .8) => {
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false }));
+  s.scale.set(size, size, 1);
+  return s;
+};
+const chrome = (color, extra = {}) => new THREE.MeshPhysicalMaterial({ color, metalness: .55, roughness: .12, clearcoat: 1, clearcoatRoughness: .04, iridescence: 1, iridescenceIOR: 1.4, envMapIntensity: 1.6, ...extra });
+
+// 1. orbit ring around the avatar
+const avatarRig = new THREE.Group(); avatarRig.position.copy(at(104, 104)); scene.add(avatarRig);
+const ring = new THREE.Mesh(new THREE.TorusGeometry(84, 3, 24, 160), chrome(0x9fe9ff));
+const moons = [0, 1, 2].map((i) => { const m = new THREE.Mesh(new THREE.SphereGeometry([9, 6, 5][i], 32, 24), chrome([0x22d3ee, 0xa78bfa, 0xf472b6][i])); avatarRig.add(m); return m; });
+const ringTilt = new THREE.Group(); ringTilt.rotation.set(1.2, 0, -.3); ringTilt.add(ring); avatarRig.add(ringTilt);
+
+// 2. focus: three floating slabs, one per focus area
+const focusRig = new THREE.Group(); focusRig.position.copy(at(1360, 140)); scene.add(focusRig);
+const slabColors = [0x22d3ee, 0xa78bfa, 0xf472b6];
+const slabs = slabColors.map((c, i) => {
+  const m = new THREE.Mesh(new RoundedBoxGeometry(170, 18, 170, 6, 8), chrome(c, { metalness: .3, roughness: .18, transparent: true, opacity: .92, emissive: c, emissiveIntensity: .12 }));
+  focusRig.add(m);
+  return m;
+});
+focusRig.add(Object.assign(glow(0xa78bfa, 360, .35), {}));
+
+// 3. building: miniature price bars (Mandi-Pulse)
+const barsRig = new THREE.Group(); barsRig.position.copy(at(965, 470)); barsRig.rotation.set(.5, -.6, 0); barsRig.scale.setScalar(.72); scene.add(barsRig);
+const NX = 6, NZ = 3, gap = 30;
+const low = new THREE.Color(0x059669), high = new THREE.Color(0xf59e0b), hot = new THREE.Color(0xe11d48);
+const barGeo = new RoundedBoxGeometry(21, 1, 21, 3, 4); barGeo.translate(0, .5, 0);
+const bars = [];
+for (let z = 0; z < NZ; z++) for (let x = 0; x < NX; x++) {
+  const m = new THREE.Mesh(barGeo, new THREE.MeshPhysicalMaterial({ metalness: .2, roughness: .2, clearcoat: 1, emissiveIntensity: .25, envMapIntensity: .8 }));
+  m.position.set((x - (NX - 1) / 2) * gap, 0, (z - (NZ - 1) / 2) * gap);
+  barsRig.add(m); bars.push({ m, x, z });
+}
+const floor = new THREE.Mesh(new RoundedBoxGeometry(NX * gap + 14, 5, NZ * gap + 14, 3, 2), chrome(0xfde68a, { metalness: .2, roughness: .3, transparent: true, opacity: .5 }));
+floor.position.y = -3; barsRig.add(floor);
+barsRig.add(Object.assign(glow(0xfbbf24, 300, .3), {}));
+
+// 4. ask: a slowly spinning faceted gem
+const gemRig = new THREE.Group(); gemRig.position.copy(at(1475, 400)); scene.add(gemRig);
+const gem = new THREE.Mesh(new THREE.OctahedronGeometry(52, 0), chrome(0xf9a8d4, { metalness: .4, roughness: .06, flatShading: true, emissive: 0xf472b6, emissiveIntensity: .1 }));
+gem.scale.y = 1.35;
+gemRig.add(gem, glow(0xf472b6, 220, .4));
+
+const col = new THREE.Color();
+function frame(t) {
+  const u = (t % LOOP) / LOOP, ph = u * TAU;
+  // avatar orbit
+  ring.rotation.z = ph;
+  moons.forEach((m, i) => {
+    const ang = ph * (i % 2 ? -1 : 1) + i * 2.1, r = 84;
+    const p = new THREE.Vector3(Math.cos(ang) * r, Math.sin(ang) * r, 0).applyEuler(ringTilt.rotation);
+    m.position.copy(p);
+  });
+  $("ring").style.setProperty("--a", `${u * 360}deg`);
+  $("online").style.opacity = .45 + .55 * (.5 + .5 * Math.cos(ph * 3));
+  $("buildDot").style.opacity = .45 + .55 * (.5 + .5 * Math.cos(ph * 4));
+  // slabs breathe apart and twist
+  slabs.forEach((s, i) => {
+    s.position.y = (1 - i) * (34 + 10 * Math.sin(ph + i));
+    s.rotation.set(.55, ph * .5 + i * .25 + .4, 0);
+  });
+  // bars ripple
+  bars.forEach(({ m, x, z }) => {
+    const pulse = Math.exp(-((x - (u * (NX + 4) - 2)) ** 2) / 1.2);
+    const h = 26 + 30 * (.5 + .5 * Math.sin(x * .9 + z * 1.1 + ph)) + 46 * pulse;
+    m.scale.y = h;
+    const k = Math.min(1, (h - 26) / 90);
+    col.copy(low).lerpHSL(high, Math.min(1, k / .8)); if (k > .8) col.lerpHSL(hot, (k - .8) / .2);
+    m.material.color.copy(col); m.material.emissive.copy(col);
+  });
+  barsRig.rotation.y = -.6 + .18 * Math.sin(ph);
+  // gem
+  gem.rotation.set(.25 * Math.sin(ph), ph, 0);
+  gemRig.position.y = -400 + 8 * Math.sin(ph * 2);
+  renderer.render(scene, camera);
+}
+
+window.__LOOP = LOOP;
+window.__renderAt = (t) => { frame(t); return true; };
+Promise.all([document.fonts.ready, new Promise((r) => { const img = $("avatar"); img.complete ? r() : (img.onload = img.onerror = r); })]).then(() => { window.__ready = true; });
+if (!new URLSearchParams(location.search).has("capture")) {
+  const start = performance.now();
+  const loop = (now) => { frame((now - start) / 1000); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>

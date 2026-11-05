@@ -21,7 +21,7 @@
 
 <img src="assets/Design/h-about.svg" width="100%" alt="About: Who I am and what I work on" />
 
-<img src="assets/Design/about.svg" width="100%" alt="Vijay Raj, Senior Data Engineer at Ingram Micro, Chennai, India. I design and run data platforms on Google Cloud, from ingestion to the dashboards people trust." />
+<img src="assets/Design/about.webp" width="100%" alt="Vijay Raj, Senior Data Engineer at Ingram Micro, Chennai, India. I design and run data platforms, from ingestion to the dashboards people trust, on Databricks and Google Cloud." />
 
 <br />
 
@@ -32,6 +32,8 @@
 <br />
 
 <img src="assets/Design/h-projects.svg" width="100%" alt="Featured work: Things I've built lately, each with its own 3D scene" />
+
+<img src="assets/Design/card-mandi-pulse.webp" width="100%" alt="Mandi-Pulse (in progress): Price intelligence for India's agricultural wholesale markets. Daily AGMARKNET prices from every mandi, collected, cleaned and tracked over time." />
 
 <p align="center">
   <a href="https://github.com/Vijayrajdev/Pipewright"><img src="assets/Design/card-pipewright.webp" width="49%" alt="Pipewright: Drop in your files. It infers schema, keys and relationships, then drafts the DDL, SQL, tests, docs and pipelines." /></a>
