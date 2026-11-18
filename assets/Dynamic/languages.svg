@@ -21,14 +21,14 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="170.21090608103694" height="8" fill="#f1e05a"/>
-                    <rect mask="url(#languages-bar)" x="170.21090608103694" y="0" width="114.02605015588532" height="8" fill="#3178c6"/>
-                    <rect mask="url(#languages-bar)" x="284.23695623692225" y="0" width="77.14316447930904" height="8" fill="#ff3a3a"/>
-                    <rect mask="url(#languages-bar)" x="361.38012071623126" y="0" width="46.495849848306015" height="8" fill="#012456"/>
-                    <rect mask="url(#languages-bar)" x="407.8759705645373" y="0" width="46.32435108357663" height="8" fill="#7d6cff"/>
-                    <rect mask="url(#languages-bar)" x="454.2003216481139" y="0" width="4.458024100453631" height="8" fill="#844FBA"/>
-                    <rect mask="url(#languages-bar)" x="458.65834574856757" y="0" width="1.1294380126871333" height="8" fill="#f7931e"/>
-                    <rect mask="url(#languages-bar)" x="459.78778376125473" y="0" width="0.21221623874532028" height="8" fill="#C1F12E"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="170.17065530488392" height="8" fill="#f1e05a"/>
+                    <rect mask="url(#languages-bar)" x="170.17065530488392" y="0" width="113.99908574375625" height="8" fill="#3178c6"/>
+                    <rect mask="url(#languages-bar)" x="284.16974104864016" y="0" width="77.12492198053688" height="8" fill="#ff3a3a"/>
+                    <rect mask="url(#languages-bar)" x="361.29466302917706" y="0" width="46.48485470065434" height="8" fill="#012456"/>
+                    <rect mask="url(#languages-bar)" x="407.7795177298314" y="0" width="46.31339649124863" height="8" fill="#7d6cff"/>
+                    <rect mask="url(#languages-bar)" x="454.0929142210801" y="0" width="4.456969885219817" height="8" fill="#844FBA"/>
+                    <rect mask="url(#languages-bar)" x="458.5498841062999" y="0" width="1.129170927823572" height="8" fill="#f7931e"/>
+                    <rect mask="url(#languages-bar)" x="459.67905503412345" y="0" width="0.32094496587655785" height="8" fill="#89e051"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
@@ -40,7 +40,7 @@
                                 JavaScript
                             </div>
                             <small>
-                                <div>37%</div>
+                                <div>36.99%</div>
                             </small>
                         </div>
                         <div class="field language details">
@@ -86,7 +86,7 @@
                                 TypeScript
                             </div>
                             <small>
-                                <div>24.79%</div>
+                                <div>24.78%</div>
                             </small>
                         </div>
                         <div class="field language details">
@@ -114,12 +114,12 @@
                         <div class="field language details">
                             <div class="field">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                    <path fill="#C1F12E" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
+                                    <path fill="#89e051" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
                                 </svg>
-                                Batchfile
+                                Shell
                             </div>
                             <small>
-                                <div>0.05%</div>
+                                <div>0.07%</div>
                             </small>
                         </div>
                     </section>
